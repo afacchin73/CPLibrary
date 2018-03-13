@@ -1,0 +1,962 @@
+[08/03/2018 09:15:30:968] Provider Class Initialize
+[08/03/2018 09:15:30:974] Provider Class Initialize
+[08/03/2018 09:15:31:003] Init: Begin - Service : BIFIS1701C1
+[08/03/2018 09:15:32:026] SQL Database Handler created
+[08/03/2018 09:15:32:418] OPEN CONNECTION: Database connection opened - Service: BIFIS1701C1
+[08/03/2018 09:15:32:455] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[08/03/2018 09:15:32:462] INIT: End - Service BIFIS1701C1
+[08/03/2018 09:15:32:466] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[08/03/2018 09:15:32:472] Get Contact Inizio campagna BIFIS1701C1
+[08/03/2018 09:15:32:479] Stato campagna BIFIS1701C1: True
+[08/03/2018 09:15:32:484] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[08/03/2018 09:15:32:491] --> GET CONTACT - Campagna = BIFIS1701C1 - query: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+                                    
+[08/03/2018 09:15:32:536] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[08/03/2018 09:15:32:545] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[08/03/2018 09:15:32:551] --> GET CONTACT - Campagna = BIFIS1701C1 - Data readed= CHIAMATA:
+ID Anagrafica: 2
+Nome: Andrea Facchin
+phone:3381999809
+current phone: 1
+num phone: 2
+[08/03/2018 09:15:32:575] --> GET CONTACT - Campagna = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 2}{cpa_nome = Andrea Facchin}{cpp_phonum = 3381999809}{OPERMODE = N}{numpho = 2}{curpho = 1}}
+[08/03/2018 09:15:32:581] Setto come Anagrafica Andrea Facchincome 9 - Occupata
+[08/03/2018 09:15:32:589] --> BLOCCO ANAGRAFICA - Campagna:BIFIS1701C1 - Aggiorno l'anagrafica inserento lo stato attuale per es aumentando il contatore e aggiornando il num tel che sto usando 
+update cpanagra set  cpa_calsts=9,cpa_calcnt=cpa_calcnt+1,cpa_curpho=cpa_curpho+1
+                            where
+                            cpa_id=2
+[08/03/2018 09:15:32:637] --> BLOCCO ANAGRAFICA: UPDATE CPPHONE - Campagna:BIFIS1701C1 - aggiorno stato telefono che è 9 in questo caso conteggio +1 in telefono ,cpp_calcnt=cpp_calcnt+1
+update cpphones set   cpp_calsts=9
+                            where 
+                            cpp_cpaid=2 and cpp_numpho=1
+[08/03/2018 09:15:32:681] --> BLOCCO ANAGRAFICA: INSERT CPCALLS - Campagna:BIFIS1701C1 - Inserisco in CPCALLS il log dell'inizio della chiamatainsert into cpcalls (cpl_cpaid,cpl_numpho,cpl_seqcall,cpl_oracall,cpl_calsts)
+                                        values(@idAnag,@numPho,@data,@ora,@stato)
+[08/03/2018 09:15:32:717] Set Contact Inizio per Campagna BIFIS1701C1
+[08/03/2018 09:15:32:725] --> UPDATE CPCALLS - Campagna:BIFIS1701C1
+[08/03/2018 09:15:32:731] --> UPDATE CPCALLS - Campagna:BIFIS1701C1, Query:
+
+                            update cpCalls set  cpl_censts=@cntStatus,cpl_oraend='091532',
+                            cpl_caldur =((substr('091532',1,2)*3600)+(substr('091532',3,2)*60)+substr('091532',5,2))
+                            -((substr(cpl_oracall,1,2)*3600)+(substr(cpl_oracall,3,2)*60)+substr(cpl_oracall,5,2)),
+                            cpl_Agent=@agente
+                            where
+                            cpl_cpaid=2 and cpl_numpho=2 and cpl_caldur is null
+[08/03/2018 09:15:32:757] --> UPDATE CPPHONE - Campagna:BIFIS1701C1 - Aggiorno tabella CpPhone con stato della call porto anvanti conteggio tentativi al telefono numero 2
+[08/03/2018 09:15:32:762] --> UPDATE CPPHONE - Campagna:BIFIS1701C1, Query:
+
+                            update cpphones set cpp_censts=@cntStatus,cpp_calsts='3'  ,cpp_calcnt=cpp_calcnt+1                          
+                            where
+                            cpp_cpaid=2 AND cpp_numpho=1
+[08/03/2018 09:15:32:796] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1
+[08/03/2018 09:15:32:800] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1 - tentativo fallito 3-KO verifico se ho altri numeri oppure devo settare 3-KO definitivamente l'anagrafica
+[08/03/2018 09:15:32:805] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1 - Ho ancora altri numeri da provare in anagrafica quindi la metto a 1-Pronta
+[08/03/2018 09:15:32:833] Get Contact Inizio campagna BIFIS1701C1
+[08/03/2018 09:15:32:840] Stato campagna BIFIS1701C1: True
+[08/03/2018 09:15:32:846] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[08/03/2018 09:15:32:852] --> GET CONTACT - Campagna = BIFIS1701C1 - query: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+                                    
+[08/03/2018 09:15:32:861] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[08/03/2018 09:15:32:866] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[08/03/2018 09:15:32:871] --> GET CONTACT - Campagna = BIFIS1701C1 - Data readed= CHIAMATA:
+ID Anagrafica: 2
+Nome: Andrea Facchin
+phone:3389999999
+current phone: 2
+num phone: 2
+[08/03/2018 09:15:32:879] --> GET CONTACT - Campagna = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 2}{cpa_nome = Andrea Facchin}{cpp_phonum = 3389999999}{OPERMODE = N}{numpho = 2}{curpho = 2}}
+[08/03/2018 09:15:32:883] Setto come Anagrafica Andrea Facchincome 9 - Occupata
+[08/03/2018 09:15:32:891] --> BLOCCO ANAGRAFICA - Campagna:BIFIS1701C1 - Aggiorno l'anagrafica inserento lo stato attuale per es aumentando il contatore e aggiornando il num tel che sto usando 
+update cpanagra set  cpa_calsts=9,cpa_calcnt=cpa_calcnt+1,cpa_curpho=cpa_curpho+1
+                            where
+                            cpa_id=2
+[08/03/2018 09:15:32:928] --> BLOCCO ANAGRAFICA: UPDATE CPPHONE - Campagna:BIFIS1701C1 - aggiorno stato telefono che è 9 in questo caso conteggio +1 in telefono ,cpp_calcnt=cpp_calcnt+1
+update cpphones set   cpp_calsts=9
+                            where 
+                            cpp_cpaid=2 and cpp_numpho=2
+[08/03/2018 09:15:32:956] --> BLOCCO ANAGRAFICA: INSERT CPCALLS - Campagna:BIFIS1701C1 - Inserisco in CPCALLS il log dell'inizio della chiamatainsert into cpcalls (cpl_cpaid,cpl_numpho,cpl_seqcall,cpl_oracall,cpl_calsts)
+                                        values(@idAnag,@numPho,@data,@ora,@stato)
+[08/03/2018 09:15:32:997] Set Contact Inizio per Campagna BIFIS1701C1
+[08/03/2018 09:15:33:004] --> UPDATE CPCALLS - Campagna:BIFIS1701C1
+[08/03/2018 09:15:33:011] --> UPDATE CPCALLS - Campagna:BIFIS1701C1, Query:
+
+                            update cpCalls set  cpl_censts=@cntStatus,cpl_oraend='091533',
+                            cpl_caldur =((substr('091533',1,2)*3600)+(substr('091533',3,2)*60)+substr('091533',5,2))
+                            -((substr(cpl_oracall,1,2)*3600)+(substr(cpl_oracall,3,2)*60)+substr(cpl_oracall,5,2)),
+                            cpl_Agent=@agente
+                            where
+                            cpl_cpaid=2 and cpl_numpho=2 and cpl_caldur is null
+[08/03/2018 09:15:33:061] --> UPDATE CPPHONE - Campagna:BIFIS1701C1 - Aggiorno tabella CpPhone con stato della call porto anvanti conteggio tentativi al telefono numero 2
+[08/03/2018 09:15:33:066] --> UPDATE CPPHONE - Campagna:BIFIS1701C1, Query:
+
+                            update cpphones set cpp_censts=@cntStatus,cpp_calsts='3'  ,cpp_calcnt=cpp_calcnt+1                          
+                            where
+                            cpp_cpaid=2 AND cpp_numpho=2
+[08/03/2018 09:15:33:110] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1
+[08/03/2018 09:15:33:115] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1 - tentativo fallito 3-KO verifico se ho altri numeri oppure devo settare 3-KO definitivamente l'anagrafica
+[08/03/2018 09:15:33:125] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1 - Ho finito i numeri e quindi è 3-KO
+[08/03/2018 09:15:33:161] Get Contact Inizio campagna BIFIS1701C1
+[08/03/2018 09:15:33:166] Stato campagna BIFIS1701C1: True
+[08/03/2018 09:15:33:174] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[08/03/2018 09:15:33:181] --> GET CONTACT - Campagna = BIFIS1701C1 - query: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+                                    
+[08/03/2018 09:15:33:187] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[08/03/2018 09:15:33:193] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[08/03/2018 09:15:33:198] --> GET CONTACT - Campagna = BIFIS1701C1 - Data readed= CHIAMATA:
+ID Anagrafica: 1
+Nome: Roberta Brusa
+phone:3394154717
+current phone: 1
+num phone: 2
+[08/03/2018 09:15:33:202] --> GET CONTACT - Campagna = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 1}{cpa_nome = Roberta Brusa}{cpp_phonum = 3394154717}{OPERMODE = N}{numpho = 2}{curpho = 1}}
+[08/03/2018 09:15:33:208] Setto come Anagrafica Roberta Brusacome 9 - Occupata
+[08/03/2018 09:15:33:215] --> BLOCCO ANAGRAFICA - Campagna:BIFIS1701C1 - Aggiorno l'anagrafica inserento lo stato attuale per es aumentando il contatore e aggiornando il num tel che sto usando 
+update cpanagra set  cpa_calsts=9,cpa_calcnt=cpa_calcnt+1,cpa_curpho=cpa_curpho+1
+                            where
+                            cpa_id=1
+[08/03/2018 09:15:33:254] --> BLOCCO ANAGRAFICA: UPDATE CPPHONE - Campagna:BIFIS1701C1 - aggiorno stato telefono che è 9 in questo caso conteggio +1 in telefono ,cpp_calcnt=cpp_calcnt+1
+update cpphones set   cpp_calsts=9
+                            where 
+                            cpp_cpaid=1 and cpp_numpho=1
+[08/03/2018 09:15:33:293] --> BLOCCO ANAGRAFICA: INSERT CPCALLS - Campagna:BIFIS1701C1 - Inserisco in CPCALLS il log dell'inizio della chiamatainsert into cpcalls (cpl_cpaid,cpl_numpho,cpl_seqcall,cpl_oracall,cpl_calsts)
+                                        values(@idAnag,@numPho,@data,@ora,@stato)
+[08/03/2018 09:15:33:332] Set Contact Inizio per Campagna BIFIS1701C1
+[08/03/2018 09:15:33:336] --> UPDATE CPCALLS - Campagna:BIFIS1701C1
+[08/03/2018 09:15:33:342] --> UPDATE CPCALLS - Campagna:BIFIS1701C1, Query:
+
+                            update cpCalls set  cpl_censts=@cntStatus,cpl_oraend='091533',
+                            cpl_caldur =((substr('091533',1,2)*3600)+(substr('091533',3,2)*60)+substr('091533',5,2))
+                            -((substr(cpl_oracall,1,2)*3600)+(substr(cpl_oracall,3,2)*60)+substr(cpl_oracall,5,2)),
+                            cpl_Agent=@agente
+                            where
+                            cpl_cpaid=1 and cpl_numpho=2 and cpl_caldur is null
+[08/03/2018 09:15:33:382] --> UPDATE CPPHONE - Campagna:BIFIS1701C1 - Aggiorno tabella CpPhone con stato della call porto anvanti conteggio tentativi al telefono numero 2
+[08/03/2018 09:15:33:387] --> UPDATE CPPHONE - Campagna:BIFIS1701C1, Query:
+
+                            update cpphones set cpp_censts=@cntStatus,cpp_calsts='3'  ,cpp_calcnt=cpp_calcnt+1                          
+                            where
+                            cpp_cpaid=1 AND cpp_numpho=1
+[08/03/2018 09:15:33:421] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1
+[08/03/2018 09:15:33:426] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1 - tentativo fallito 3-KO verifico se ho altri numeri oppure devo settare 3-KO definitivamente l'anagrafica
+[08/03/2018 09:15:33:432] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1 - Ho ancora altri numeri da provare in anagrafica quindi la metto a 1-Pronta
+[08/03/2018 09:15:33:470] Get Contact Inizio campagna BIFIS1701C1
+[08/03/2018 09:15:33:475] Stato campagna BIFIS1701C1: True
+[08/03/2018 09:15:33:479] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[08/03/2018 09:15:33:483] --> GET CONTACT - Campagna = BIFIS1701C1 - query: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+                                    
+[08/03/2018 09:15:33:490] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[08/03/2018 09:15:33:494] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[08/03/2018 09:15:33:498] --> GET CONTACT - Campagna = BIFIS1701C1 - Data readed= CHIAMATA:
+ID Anagrafica: 1
+Nome: Roberta Brusa
+phone:3334444444
+current phone: 2
+num phone: 2
+[08/03/2018 09:15:33:503] --> GET CONTACT - Campagna = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 1}{cpa_nome = Roberta Brusa}{cpp_phonum = 3334444444}{OPERMODE = N}{numpho = 2}{curpho = 2}}
+[08/03/2018 09:15:33:509] Setto come Anagrafica Roberta Brusacome 9 - Occupata
+[08/03/2018 09:15:33:515] --> BLOCCO ANAGRAFICA - Campagna:BIFIS1701C1 - Aggiorno l'anagrafica inserento lo stato attuale per es aumentando il contatore e aggiornando il num tel che sto usando 
+update cpanagra set  cpa_calsts=9,cpa_calcnt=cpa_calcnt+1,cpa_curpho=cpa_curpho+1
+                            where
+                            cpa_id=1
+[08/03/2018 09:15:33:553] --> BLOCCO ANAGRAFICA: UPDATE CPPHONE - Campagna:BIFIS1701C1 - aggiorno stato telefono che è 9 in questo caso conteggio +1 in telefono ,cpp_calcnt=cpp_calcnt+1
+update cpphones set   cpp_calsts=9
+                            where 
+                            cpp_cpaid=1 and cpp_numpho=2
+[08/03/2018 09:15:33:581] --> BLOCCO ANAGRAFICA: INSERT CPCALLS - Campagna:BIFIS1701C1 - Inserisco in CPCALLS il log dell'inizio della chiamatainsert into cpcalls (cpl_cpaid,cpl_numpho,cpl_seqcall,cpl_oracall,cpl_calsts)
+                                        values(@idAnag,@numPho,@data,@ora,@stato)
+[08/03/2018 09:15:33:620] Set Contact Inizio per Campagna BIFIS1701C1
+[08/03/2018 09:15:33:626] --> UPDATE CPCALLS - Campagna:BIFIS1701C1
+[08/03/2018 09:15:33:630] --> UPDATE CPCALLS - Campagna:BIFIS1701C1, Query:
+
+                            update cpCalls set  cpl_censts=@cntStatus,cpl_oraend='091533',
+                            cpl_caldur =((substr('091533',1,2)*3600)+(substr('091533',3,2)*60)+substr('091533',5,2))
+                            -((substr(cpl_oracall,1,2)*3600)+(substr(cpl_oracall,3,2)*60)+substr(cpl_oracall,5,2)),
+                            cpl_Agent=@agente
+                            where
+                            cpl_cpaid=1 and cpl_numpho=2 and cpl_caldur is null
+[08/03/2018 09:15:33:659] --> UPDATE CPPHONE - Campagna:BIFIS1701C1 - Aggiorno tabella CpPhone con stato della call porto anvanti conteggio tentativi al telefono numero 2
+[08/03/2018 09:15:33:663] --> UPDATE CPPHONE - Campagna:BIFIS1701C1, Query:
+
+                            update cpphones set cpp_censts=@cntStatus,cpp_calsts='3'  ,cpp_calcnt=cpp_calcnt+1                          
+                            where
+                            cpp_cpaid=1 AND cpp_numpho=2
+[08/03/2018 09:15:33:697] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1
+[08/03/2018 09:15:33:701] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1 - tentativo fallito 3-KO verifico se ho altri numeri oppure devo settare 3-KO definitivamente l'anagrafica
+[08/03/2018 09:15:33:708] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1 - Ho finito i numeri e quindi è 3-KO
+[08/03/2018 09:15:33:737] Get Contact Inizio campagna BIFIS1701C1
+[08/03/2018 09:15:33:742] Stato campagna BIFIS1701C1: True
+[08/03/2018 09:15:33:746] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[08/03/2018 09:15:33:750] --> GET CONTACT - Campagna = BIFIS1701C1 - query: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+                                    
+[08/03/2018 09:15:33:758] --> GET CONTACT - Campagna = BIFIS1701C1 - Fine o Nessun Records: EOF imposto Campagna come 2-Chiusa
+[08/03/2018 09:15:33:763] --> UPDATE CAMPAGNA STATUS - Query:
+
+                            update cpcamp set  cpg_status=2
+                            where
+                            cpg_id=2
+[08/03/2018 09:15:33:797] Init: Begin - Service : XXXXXXXXXX
+[08/03/2018 09:15:33:803] SQL Database Handler created
+[08/03/2018 09:15:33:883] OPEN CONNECTION: Database connection opened - Service: XXXXXXXXXX
+[08/03/2018 09:15:33:890] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 1
+[08/03/2018 09:15:33:893] INIT: End - Service XXXXXXXXXX
+[08/03/2018 09:15:33:897] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 1
+[08/03/2018 09:15:33:901] Get Contact Inizio campagna XXXXXXXXXX
+[08/03/2018 09:15:33:907] Stato campagna XXXXXXXXXX: True
+[08/03/2018 09:15:33:911] --> GET CONTACT - Campagna XXXXXXXXXX Attiva. Ragione: Attiva(1)
+[08/03/2018 09:15:33:915] --> GET CONTACT - Campagna = XXXXXXXXXX - query: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='XXXXXXXXXX'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+                                    
+[08/03/2018 09:15:33:922] --> GET CONTACT - Service = XXXXXXXXXX - Calling MoveNext
+[08/03/2018 09:15:33:928] --> GET CONTACT - Service = XXXXXXXXXX - Reading data from DataSet
+[08/03/2018 09:15:33:932] --> GET CONTACT - Campagna = XXXXXXXXXX - Data readed= CHIAMATA:
+ID Anagrafica: 5
+Nome: Marco Moret
+phone:3335656561
+current phone: 1
+num phone: 1
+[08/03/2018 09:15:33:939] --> GET CONTACT - Campagna = XXXXXXXXXX - CALL DATA {{cpg_id = 3}{cpa_id = 5}{cpa_nome = Marco Moret}{cpp_phonum = 3335656561}{OPERMODE = N}{numpho = 1}{curpho = 1}}
+[08/03/2018 09:15:33:943] Setto come Anagrafica Marco Moretcome 9 - Occupata
+[08/03/2018 09:15:33:949] --> BLOCCO ANAGRAFICA - Campagna:XXXXXXXXXX - Aggiorno l'anagrafica inserento lo stato attuale per es aumentando il contatore e aggiornando il num tel che sto usando 
+update cpanagra set  cpa_calsts=9,cpa_calcnt=cpa_calcnt+1,cpa_curpho=cpa_curpho+1
+                            where
+                            cpa_id=5
+[08/03/2018 09:15:34:001] --> BLOCCO ANAGRAFICA: UPDATE CPPHONE - Campagna:XXXXXXXXXX - aggiorno stato telefono che è 9 in questo caso conteggio +1 in telefono ,cpp_calcnt=cpp_calcnt+1
+update cpphones set   cpp_calsts=9
+                            where 
+                            cpp_cpaid=5 and cpp_numpho=1
+[08/03/2018 09:15:34:039] --> BLOCCO ANAGRAFICA: INSERT CPCALLS - Campagna:XXXXXXXXXX - Inserisco in CPCALLS il log dell'inizio della chiamatainsert into cpcalls (cpl_cpaid,cpl_numpho,cpl_seqcall,cpl_oracall,cpl_calsts)
+                                        values(@idAnag,@numPho,@data,@ora,@stato)
+[08/03/2018 09:15:34:068] Set Contact Inizio per Campagna XXXXXXXXXX
+[08/03/2018 09:15:34:073] --> UPDATE CPCALLS - Campagna:XXXXXXXXXX
+[08/03/2018 09:15:34:078] --> UPDATE CPCALLS - Campagna:XXXXXXXXXX, Query:
+
+                            update cpCalls set  cpl_censts=@cntStatus,cpl_oraend='091534',
+                            cpl_caldur =((substr('091534',1,2)*3600)+(substr('091534',3,2)*60)+substr('091534',5,2))
+                            -((substr(cpl_oracall,1,2)*3600)+(substr(cpl_oracall,3,2)*60)+substr(cpl_oracall,5,2)),
+                            cpl_Agent=@agente
+                            where
+                            cpl_cpaid=5 and cpl_numpho=1 and cpl_caldur is null
+[08/03/2018 09:15:34:117] --> UPDATE CPPHONE - Campagna:XXXXXXXXXX - Aggiorno tabella CpPhone con stato della call porto anvanti conteggio tentativi al telefono numero 1
+[08/03/2018 09:15:34:123] --> UPDATE CPPHONE - Campagna:XXXXXXXXXX, Query:
+
+                            update cpphones set cpp_censts=@cntStatus,cpp_calsts='3'  ,cpp_calcnt=cpp_calcnt+1                          
+                            where
+                            cpp_cpaid=5 AND cpp_numpho=1
+[08/03/2018 09:15:34:156] --> UPDATE CPANAGRA - Campagna:XXXXXXXXXX
+[08/03/2018 09:15:34:161] --> UPDATE CPANAGRA - Campagna:XXXXXXXXXX - tentativo fallito 3-KO verifico se ho altri numeri oppure devo settare 3-KO definitivamente l'anagrafica
+[08/03/2018 09:15:34:166] --> UPDATE CPANAGRA - Campagna:XXXXXXXXXX - Ho finito i numeri e quindi è 3-KO
+[08/03/2018 09:15:34:206] Get Contact Inizio campagna XXXXXXXXXX
+[08/03/2018 09:15:34:212] Stato campagna XXXXXXXXXX: True
+[08/03/2018 09:15:34:216] --> GET CONTACT - Campagna XXXXXXXXXX Attiva. Ragione: Attiva(1)
+[08/03/2018 09:15:34:222] --> GET CONTACT - Campagna = XXXXXXXXXX - query: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='XXXXXXXXXX'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+                                    
+[08/03/2018 09:15:34:228] --> GET CONTACT - Campagna = XXXXXXXXXX - Fine o Nessun Records: EOF imposto Campagna come 2-Chiusa
+[08/03/2018 09:15:34:234] --> UPDATE CAMPAGNA STATUS - Query:
+
+                            update cpcamp set  cpg_status=2
+                            where
+                            cpg_id=3
+[08/03/2018 09:15:34:267] --> REFRESH DB: Inizio - Campagna: XXXXXXXXXX
+[08/03/2018 09:15:34:273] --> RELOAD DATASET - Refreshed dataset
+[08/03/2018 09:15:34:279] --> REFRESH DB: Fine - Campagna: XXXXXXXXXX
+[08/03/2018 09:18:18:467] Provider Class Initialize
+[08/03/2018 09:18:18:472] Provider Class Initialize
+[08/03/2018 09:18:18:496] Init: Begin - Service : BIFIS1701C1
+[08/03/2018 09:18:18:580] SQL Database Handler created
+[08/03/2018 09:18:18:833] OPEN CONNECTION: Database connection opened - Service: BIFIS1701C1
+[08/03/2018 09:18:18:840] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[08/03/2018 09:18:18:844] INIT: End - Service BIFIS1701C1
+[08/03/2018 09:18:18:850] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[08/03/2018 09:18:18:873] Get Contact Inizio campagna BIFIS1701C1
+[08/03/2018 09:18:18:881] Stato campagna BIFIS1701C1: True
+[08/03/2018 09:18:18:886] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[08/03/2018 09:18:18:892] --> GET CONTACT - Campagna = BIFIS1701C1 - query: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+                                    
+[08/03/2018 09:18:18:913] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[08/03/2018 09:18:18:917] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[08/03/2018 09:18:18:921] --> GET CONTACT - Campagna = BIFIS1701C1 - Data readed= CHIAMATA:
+ID Anagrafica: 2
+Nome: Andrea Facchin
+phone:3381999809
+current phone: 1
+num phone: 2
+[08/03/2018 09:18:18:929] --> GET CONTACT - Campagna = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 2}{cpa_nome = Andrea Facchin}{cpp_phonum = 3381999809}{OPERMODE = N}{numpho = 2}{curpho = 1}}
+[08/03/2018 09:18:18:933] Setto come Anagrafica Andrea Facchincome 9 - Occupata
+[08/03/2018 09:18:18:940] --> BLOCCO ANAGRAFICA - Campagna:BIFIS1701C1 - Aggiorno l'anagrafica inserento lo stato attuale per es aumentando il contatore e aggiornando il num tel che sto usando 
+update cpanagra set  cpa_calsts=9,cpa_calcnt=cpa_calcnt+1,cpa_curpho=cpa_curpho+1
+                            where
+                            cpa_id=2
+[08/03/2018 09:18:18:991] --> BLOCCO ANAGRAFICA: UPDATE CPPHONE - Campagna:BIFIS1701C1 - aggiorno stato telefono che è 9 in questo caso conteggio +1 in telefono ,cpp_calcnt=cpp_calcnt+1
+update cpphones set   cpp_calsts=9
+                            where 
+                            cpp_cpaid=2 and cpp_numpho=1
+[08/03/2018 09:18:19:034] --> BLOCCO ANAGRAFICA: INSERT CPCALLS - Campagna:BIFIS1701C1 - Inserisco in CPCALLS il log dell'inizio della chiamatainsert into cpcalls (cpl_cpaid,cpl_numpho,cpl_seqcall,cpl_oracall,cpl_calsts)
+                                        values(@idAnag,@numPho,@data,@ora,@stato)
+[08/03/2018 09:18:19:069] Set Contact Inizio per Campagna BIFIS1701C1
+[08/03/2018 09:18:30:473] --> UPDATE CPCALLS - Campagna:BIFIS1701C1
+[08/03/2018 09:20:08:410] Provider Class Initialize
+[08/03/2018 09:20:08:415] Provider Class Initialize
+[08/03/2018 09:20:08:438] Init: Begin - Service : BIFIS1701C1
+[08/03/2018 09:20:08:490] SQL Database Handler created
+[08/03/2018 09:20:08:720] OPEN CONNECTION: Database connection opened - Service: BIFIS1701C1
+[08/03/2018 09:20:08:726] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[08/03/2018 09:20:08:732] INIT: End - Service BIFIS1701C1
+[08/03/2018 09:20:08:737] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[08/03/2018 09:20:08:746] Get Contact Inizio campagna BIFIS1701C1
+[08/03/2018 09:20:08:752] Stato campagna BIFIS1701C1: True
+[08/03/2018 09:20:08:756] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[08/03/2018 09:20:08:761] --> GET CONTACT - Campagna = BIFIS1701C1 - query: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+                                    
+[08/03/2018 09:20:08:781] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[08/03/2018 09:20:08:785] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[08/03/2018 09:20:08:790] --> GET CONTACT - Campagna = BIFIS1701C1 - Data readed= CHIAMATA:
+ID Anagrafica: 2
+Nome: Andrea Facchin
+phone:3381999809
+current phone: 1
+num phone: 2
+[08/03/2018 09:20:08:796] --> GET CONTACT - Campagna = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 2}{cpa_nome = Andrea Facchin}{cpp_phonum = 3381999809}{OPERMODE = N}{numpho = 2}{curpho = 1}}
+[08/03/2018 09:20:08:800] Setto come Anagrafica Andrea Facchincome 9 - Occupata
+[08/03/2018 09:20:08:807] --> BLOCCO ANAGRAFICA - Campagna:BIFIS1701C1 - Aggiorno l'anagrafica inserento lo stato attuale per es aumentando il contatore e aggiornando il num tel che sto usando 
+update cpanagra set  cpa_calsts=9,cpa_calcnt=cpa_calcnt+1,cpa_curpho=cpa_curpho+1
+                            where
+                            cpa_id=2
+[08/03/2018 09:20:08:860] --> BLOCCO ANAGRAFICA: UPDATE CPPHONE - Campagna:BIFIS1701C1 - aggiorno stato telefono che è 9 in questo caso conteggio +1 in telefono ,cpp_calcnt=cpp_calcnt+1
+update cpphones set   cpp_calsts=9
+                            where 
+                            cpp_cpaid=2 and cpp_numpho=1
+[08/03/2018 09:20:08:902] --> BLOCCO ANAGRAFICA: INSERT CPCALLS - Campagna:BIFIS1701C1 - Inserisco in CPCALLS il log dell'inizio della chiamatainsert into cpcalls (cpl_cpaid,cpl_numpho,cpl_seqcall,cpl_oracall,cpl_calsts)
+                                        values(@idAnag,@numPho,@data,@ora,@stato)
+[08/03/2018 09:20:17:754] Set Contact Inizio per Campagna BIFIS1701C1
+[08/03/2018 09:20:18:377] --> UPDATE CPCALLS - Campagna:BIFIS1701C1
+[08/03/2018 09:20:18:381] --> UPDATE CPCALLS - Campagna:BIFIS1701C1, Query:
+
+                            update cpCalls set  cpl_censts=@cntStatus,cpl_oraend='092018',
+                            cpl_caldur =((substr('092018',1,2)*3600)+(substr('092018',3,2)*60)+substr('092018',5,2))
+                            -((substr(cpl_oracall,1,2)*3600)+(substr(cpl_oracall,3,2)*60)+substr(cpl_oracall,5,2)),
+                            cpl_Agent=@agente
+                            where
+                            cpl_cpaid=2 and cpl_numpho=2 and cpl_caldur is null
+[08/03/2018 09:20:18:507] --> UPDATE CPPHONE - Campagna:BIFIS1701C1 - Aggiorno tabella CpPhone con stato della call porto anvanti conteggio tentativi al telefono numero 2
+[08/03/2018 09:20:18:512] --> UPDATE CPPHONE - Campagna:BIFIS1701C1, Query:
+
+                            update cpphones set cpp_censts=@cntStatus,cpp_calsts='3'  ,cpp_calcnt=cpp_calcnt+1                          
+                            where
+                            cpp_cpaid=2 AND cpp_numpho=1
+[08/03/2018 09:20:18:546] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1
+[08/03/2018 09:20:18:550] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1 - tentativo fallito 3-KO verifico se ho altri numeri oppure devo settare 3-KO definitivamente l'anagrafica
+[08/03/2018 09:20:18:555] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1 - Ho ancora altri numeri da provare in anagrafica quindi la metto a 1-Pronta
+[08/03/2018 09:20:18:595] Get Contact Inizio campagna BIFIS1701C1
+[08/03/2018 09:20:18:599] Stato campagna BIFIS1701C1: True
+[08/03/2018 09:20:18:603] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[08/03/2018 09:20:18:606] --> GET CONTACT - Campagna = BIFIS1701C1 - query: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+                                    
+[08/03/2018 09:20:18:611] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[08/03/2018 09:20:18:615] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[08/03/2018 09:20:18:621] --> GET CONTACT - Campagna = BIFIS1701C1 - Data readed= CHIAMATA:
+ID Anagrafica: 2
+Nome: Andrea Facchin
+phone:3389999999
+current phone: 2
+num phone: 2
+[08/03/2018 09:20:18:626] --> GET CONTACT - Campagna = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 2}{cpa_nome = Andrea Facchin}{cpp_phonum = 3389999999}{OPERMODE = N}{numpho = 2}{curpho = 2}}
+[08/03/2018 09:20:18:630] Setto come Anagrafica Andrea Facchincome 9 - Occupata
+[08/03/2018 09:20:18:634] --> BLOCCO ANAGRAFICA - Campagna:BIFIS1701C1 - Aggiorno l'anagrafica inserento lo stato attuale per es aumentando il contatore e aggiornando il num tel che sto usando 
+update cpanagra set  cpa_calsts=9,cpa_calcnt=cpa_calcnt+1,cpa_curpho=cpa_curpho+1
+                            where
+                            cpa_id=2
+[08/03/2018 09:20:18:666] --> BLOCCO ANAGRAFICA: UPDATE CPPHONE - Campagna:BIFIS1701C1 - aggiorno stato telefono che è 9 in questo caso conteggio +1 in telefono ,cpp_calcnt=cpp_calcnt+1
+update cpphones set   cpp_calsts=9
+                            where 
+                            cpp_cpaid=2 and cpp_numpho=2
+[08/03/2018 09:20:18:706] --> BLOCCO ANAGRAFICA: INSERT CPCALLS - Campagna:BIFIS1701C1 - Inserisco in CPCALLS il log dell'inizio della chiamatainsert into cpcalls (cpl_cpaid,cpl_numpho,cpl_seqcall,cpl_oracall,cpl_calsts)
+                                        values(@idAnag,@numPho,@data,@ora,@stato)
+[08/03/2018 09:20:18:733] Set Contact Inizio per Campagna BIFIS1701C1
+[08/03/2018 09:20:23:507] --> UPDATE CPCALLS - Campagna:BIFIS1701C1
+[08/03/2018 09:20:23:513] --> UPDATE CPCALLS - Campagna:BIFIS1701C1, Query:
+
+                            update cpCalls set  cpl_censts=@cntStatus,cpl_oraend='092023',
+                            cpl_caldur =((substr('092023',1,2)*3600)+(substr('092023',3,2)*60)+substr('092023',5,2))
+                            -((substr(cpl_oracall,1,2)*3600)+(substr(cpl_oracall,3,2)*60)+substr(cpl_oracall,5,2)),
+                            cpl_Agent=@agente
+                            where
+                            cpl_cpaid=2 and cpl_numpho=2 and cpl_caldur is null
+[08/03/2018 09:20:23:652] --> UPDATE CPPHONE - Campagna:BIFIS1701C1 - Aggiorno tabella CpPhone con stato della call porto anvanti conteggio tentativi al telefono numero 2
+[08/03/2018 09:20:23:657] --> UPDATE CPPHONE - Campagna:BIFIS1701C1, Query:
+
+                            update cpphones set cpp_censts=@cntStatus,cpp_calsts='3'  ,cpp_calcnt=cpp_calcnt+1                          
+                            where
+                            cpp_cpaid=2 AND cpp_numpho=2
+[08/03/2018 09:20:23:691] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1
+[08/03/2018 09:20:23:695] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1 - tentativo fallito 3-KO verifico se ho altri numeri oppure devo settare 3-KO definitivamente l'anagrafica
+[08/03/2018 09:20:23:700] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1 - Ho finito i numeri e quindi è 3-KO
+[08/03/2018 09:20:23:752] Get Contact Inizio campagna BIFIS1701C1
+[08/03/2018 09:20:23:756] Stato campagna BIFIS1701C1: True
+[08/03/2018 09:20:23:760] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[08/03/2018 09:20:23:764] --> GET CONTACT - Campagna = BIFIS1701C1 - query: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+                                    
+[08/03/2018 09:20:23:768] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[08/03/2018 09:20:23:772] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[08/03/2018 09:20:23:776] --> GET CONTACT - Campagna = BIFIS1701C1 - Data readed= CHIAMATA:
+ID Anagrafica: 1
+Nome: Roberta Brusa
+phone:3394154717
+current phone: 1
+num phone: 2
+[08/03/2018 09:20:23:781] --> GET CONTACT - Campagna = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 1}{cpa_nome = Roberta Brusa}{cpp_phonum = 3394154717}{OPERMODE = N}{numpho = 2}{curpho = 1}}
+[08/03/2018 09:20:23:787] Setto come Anagrafica Roberta Brusacome 9 - Occupata
+[08/03/2018 09:20:23:791] --> BLOCCO ANAGRAFICA - Campagna:BIFIS1701C1 - Aggiorno l'anagrafica inserento lo stato attuale per es aumentando il contatore e aggiornando il num tel che sto usando 
+update cpanagra set  cpa_calsts=9,cpa_calcnt=cpa_calcnt+1,cpa_curpho=cpa_curpho+1
+                            where
+                            cpa_id=1
+[08/03/2018 09:20:23:823] --> BLOCCO ANAGRAFICA: UPDATE CPPHONE - Campagna:BIFIS1701C1 - aggiorno stato telefono che è 9 in questo caso conteggio +1 in telefono ,cpp_calcnt=cpp_calcnt+1
+update cpphones set   cpp_calsts=9
+                            where 
+                            cpp_cpaid=1 and cpp_numpho=1
+[08/03/2018 09:20:23:861] --> BLOCCO ANAGRAFICA: INSERT CPCALLS - Campagna:BIFIS1701C1 - Inserisco in CPCALLS il log dell'inizio della chiamatainsert into cpcalls (cpl_cpaid,cpl_numpho,cpl_seqcall,cpl_oracall,cpl_calsts)
+                                        values(@idAnag,@numPho,@data,@ora,@stato)
+[08/03/2018 09:20:23:890] Set Contact Inizio per Campagna BIFIS1701C1
+[08/03/2018 09:21:45:783] Provider Class Initialize
+[08/03/2018 09:21:45:790] Provider Class Initialize
+[08/03/2018 09:21:45:816] Init: Begin - Service : BIFIS1701C1
+[08/03/2018 09:21:45:875] SQL Database Handler created
+[08/03/2018 09:21:46:133] OPEN CONNECTION: Database connection opened - Service: BIFIS1701C1
+[08/03/2018 09:21:46:139] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[08/03/2018 09:21:46:145] INIT: End - Service BIFIS1701C1
+[08/03/2018 09:21:46:151] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[08/03/2018 09:21:46:158] Get Contact Inizio campagna BIFIS1701C1
+[08/03/2018 09:21:46:165] Stato campagna BIFIS1701C1: True
+[08/03/2018 09:21:46:170] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[08/03/2018 09:21:46:176] --> GET CONTACT - Campagna = BIFIS1701C1 - query: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+                                    
+[08/03/2018 09:21:46:202] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[08/03/2018 09:21:46:208] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[08/03/2018 09:21:46:215] --> GET CONTACT - Campagna = BIFIS1701C1 - Data readed= CHIAMATA:
+ID Anagrafica: 2
+Nome: Andrea Facchin
+phone:3381999809
+current phone: 1
+num phone: 2
+[08/03/2018 09:21:46:223] --> GET CONTACT - Campagna = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 2}{cpa_nome = Andrea Facchin}{cpp_phonum = 3381999809}{OPERMODE = N}{numpho = 2}{curpho = 1}}
+[08/03/2018 09:21:46:229] Setto come Anagrafica Andrea Facchincome 9 - Occupata
+[08/03/2018 09:21:46:237] --> BLOCCO ANAGRAFICA - Campagna:BIFIS1701C1 - Aggiorno l'anagrafica inserento lo stato attuale per es aumentando il contatore e aggiornando il num tel che sto usando 
+update cpanagra set  cpa_calsts=9,cpa_calcnt=cpa_calcnt+1,cpa_curpho=cpa_curpho+1
+                            where
+                            cpa_id=2
+[08/03/2018 09:21:46:350] --> BLOCCO ANAGRAFICA: UPDATE CPPHONE - Campagna:BIFIS1701C1 - aggiorno stato telefono che è 9 in questo caso conteggio +1 in telefono ,cpp_calcnt=cpp_calcnt+1
+update cpphones set   cpp_calsts=9
+                            where 
+                            cpp_cpaid=2 and cpp_numpho=1
+[08/03/2018 09:21:46:394] --> BLOCCO ANAGRAFICA: INSERT CPCALLS - Campagna:BIFIS1701C1 - Inserisco in CPCALLS il log dell'inizio della chiamatainsert into cpcalls (cpl_cpaid,cpl_numpho,cpl_seqcall,cpl_oracall,cpl_calsts)
+                                        values(@idAnag,@numPho,@data,@ora,@stato)
+[08/03/2018 09:21:46:430] Set Contact Inizio per Campagna BIFIS1701C1
+[08/03/2018 09:21:51:818] --> UPDATE CPCALLS - Campagna:BIFIS1701C1
+[08/03/2018 09:21:51:823] --> UPDATE CPCALLS - Campagna:BIFIS1701C1, Query:
+
+                            update cpCalls set  cpl_censts=@cntStatus,cpl_oraend='092151',
+                            cpl_caldur =((substr('092151',1,2)*3600)+(substr('092151',3,2)*60)+substr('092151',5,2))
+                            -((substr(cpl_oracall,1,2)*3600)+(substr(cpl_oracall,3,2)*60)+substr(cpl_oracall,5,2)),
+                            cpl_Agent=@agente
+                            where
+                            cpl_cpaid=2 and cpl_numpho=2 and cpl_caldur is null
+[08/03/2018 09:21:51:864] --> UPDATE CPPHONE - Campagna:BIFIS1701C1 - Aggiorno tabella CpPhone con stato della call porto anvanti conteggio tentativi al telefono numero 2
+[08/03/2018 09:21:51:868] --> UPDATE CPPHONE - Campagna:BIFIS1701C1, Query:
+
+                            update cpphones set cpp_censts=@cntStatus,cpp_calsts='3'  ,cpp_calcnt=cpp_calcnt+1                          
+                            where
+                            cpp_cpaid=2 AND cpp_numpho=1
+[08/03/2018 09:21:51:903] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1
+[08/03/2018 09:21:51:908] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1 - tentativo fallito 3-KO verifico se ho altri numeri oppure devo settare 3-KO definitivamente l'anagrafica
+[08/03/2018 09:21:51:915] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1 - Ho ancora altri numeri da provare in anagrafica quindi la metto a 1-Pronta
+[08/03/2018 09:21:51:952] Get Contact Inizio campagna BIFIS1701C1
+[08/03/2018 09:21:51:958] Stato campagna BIFIS1701C1: True
+[08/03/2018 09:21:51:962] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[08/03/2018 09:21:51:965] --> GET CONTACT - Campagna = BIFIS1701C1 - query: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+                                    
+[08/03/2018 09:21:51:970] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[08/03/2018 09:21:51:975] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[08/03/2018 09:21:51:980] --> GET CONTACT - Campagna = BIFIS1701C1 - Data readed= CHIAMATA:
+ID Anagrafica: 2
+Nome: Andrea Facchin
+phone:3389999999
+current phone: 2
+num phone: 2
+[08/03/2018 09:21:51:984] --> GET CONTACT - Campagna = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 2}{cpa_nome = Andrea Facchin}{cpp_phonum = 3389999999}{OPERMODE = N}{numpho = 2}{curpho = 2}}
+[08/03/2018 09:21:51:988] Setto come Anagrafica Andrea Facchincome 9 - Occupata
+[08/03/2018 09:21:51:992] --> BLOCCO ANAGRAFICA - Campagna:BIFIS1701C1 - Aggiorno l'anagrafica inserento lo stato attuale per es aumentando il contatore e aggiornando il num tel che sto usando 
+update cpanagra set  cpa_calsts=9,cpa_calcnt=cpa_calcnt+1,cpa_curpho=cpa_curpho+1
+                            where
+                            cpa_id=2
+[08/03/2018 09:21:52:023] --> BLOCCO ANAGRAFICA: UPDATE CPPHONE - Campagna:BIFIS1701C1 - aggiorno stato telefono che è 9 in questo caso conteggio +1 in telefono ,cpp_calcnt=cpp_calcnt+1
+update cpphones set   cpp_calsts=9
+                            where 
+                            cpp_cpaid=2 and cpp_numpho=2
+[08/03/2018 09:21:52:063] --> BLOCCO ANAGRAFICA: INSERT CPCALLS - Campagna:BIFIS1701C1 - Inserisco in CPCALLS il log dell'inizio della chiamatainsert into cpcalls (cpl_cpaid,cpl_numpho,cpl_seqcall,cpl_oracall,cpl_calsts)
+                                        values(@idAnag,@numPho,@data,@ora,@stato)
+[08/03/2018 09:21:52:101] Set Contact Inizio per Campagna BIFIS1701C1
+[08/03/2018 09:21:52:106] --> UPDATE CPCALLS - Campagna:BIFIS1701C1
+[08/03/2018 09:21:52:113] --> UPDATE CPCALLS - Campagna:BIFIS1701C1, Query:
+
+                            update cpCalls set  cpl_censts=@cntStatus,cpl_oraend='092152',
+                            cpl_caldur =((substr('092152',1,2)*3600)+(substr('092152',3,2)*60)+substr('092152',5,2))
+                            -((substr(cpl_oracall,1,2)*3600)+(substr(cpl_oracall,3,2)*60)+substr(cpl_oracall,5,2)),
+                            cpl_Agent=@agente
+                            where
+                            cpl_cpaid=2 and cpl_numpho=2 and cpl_caldur is null
+[08/03/2018 09:21:52:151] --> UPDATE CPPHONE - Campagna:BIFIS1701C1 - Aggiorno tabella CpPhone con stato della call porto anvanti conteggio tentativi al telefono numero 2
+[08/03/2018 09:21:52:156] --> UPDATE CPPHONE - Campagna:BIFIS1701C1, Query:
+
+                            update cpphones set cpp_censts=@cntStatus,cpp_calsts='2'  ,cpp_calcnt=cpp_calcnt+1                          
+                            where
+                            cpp_cpaid=2 AND cpp_numpho=2
+[08/03/2018 09:21:52:190] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1
+[08/03/2018 09:21:52:194] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1 - sono riuscito a contattare quindi è 2-OK
+[08/03/2018 09:21:52:240] Get Contact Inizio campagna BIFIS1701C1
+[08/03/2018 09:21:52:246] Stato campagna BIFIS1701C1: True
+[08/03/2018 09:21:52:250] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[08/03/2018 09:21:52:255] --> GET CONTACT - Campagna = BIFIS1701C1 - query: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+                                    
+[08/03/2018 09:21:52:262] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[08/03/2018 09:21:52:266] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[08/03/2018 09:21:52:269] --> GET CONTACT - Campagna = BIFIS1701C1 - Data readed= CHIAMATA:
+ID Anagrafica: 1
+Nome: Roberta Brusa
+phone:3394154717
+current phone: 1
+num phone: 2
+[08/03/2018 09:21:52:274] --> GET CONTACT - Campagna = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 1}{cpa_nome = Roberta Brusa}{cpp_phonum = 3394154717}{OPERMODE = N}{numpho = 2}{curpho = 1}}
+[08/03/2018 09:21:52:280] Setto come Anagrafica Roberta Brusacome 9 - Occupata
+[08/03/2018 09:21:52:284] --> BLOCCO ANAGRAFICA - Campagna:BIFIS1701C1 - Aggiorno l'anagrafica inserento lo stato attuale per es aumentando il contatore e aggiornando il num tel che sto usando 
+update cpanagra set  cpa_calsts=9,cpa_calcnt=cpa_calcnt+1,cpa_curpho=cpa_curpho+1
+                            where
+                            cpa_id=1
+[08/03/2018 09:21:52:322] --> BLOCCO ANAGRAFICA: UPDATE CPPHONE - Campagna:BIFIS1701C1 - aggiorno stato telefono che è 9 in questo caso conteggio +1 in telefono ,cpp_calcnt=cpp_calcnt+1
+update cpphones set   cpp_calsts=9
+                            where 
+                            cpp_cpaid=1 and cpp_numpho=1
+[08/03/2018 09:21:52:350] --> BLOCCO ANAGRAFICA: INSERT CPCALLS - Campagna:BIFIS1701C1 - Inserisco in CPCALLS il log dell'inizio della chiamatainsert into cpcalls (cpl_cpaid,cpl_numpho,cpl_seqcall,cpl_oracall,cpl_calsts)
+                                        values(@idAnag,@numPho,@data,@ora,@stato)
+[08/03/2018 09:21:52:388] Set Contact Inizio per Campagna BIFIS1701C1
+[08/03/2018 09:21:52:394] --> UPDATE CPCALLS - Campagna:BIFIS1701C1
+[08/03/2018 09:21:52:398] --> UPDATE CPCALLS - Campagna:BIFIS1701C1, Query:
+
+                            update cpCalls set  cpl_censts=@cntStatus,cpl_oraend='092152',
+                            cpl_caldur =((substr('092152',1,2)*3600)+(substr('092152',3,2)*60)+substr('092152',5,2))
+                            -((substr(cpl_oracall,1,2)*3600)+(substr(cpl_oracall,3,2)*60)+substr(cpl_oracall,5,2)),
+                            cpl_Agent=@agente
+                            where
+                            cpl_cpaid=1 and cpl_numpho=2 and cpl_caldur is null
+[08/03/2018 09:21:52:429] --> UPDATE CPPHONE - Campagna:BIFIS1701C1 - Aggiorno tabella CpPhone con stato della call porto anvanti conteggio tentativi al telefono numero 2
+[08/03/2018 09:21:52:435] --> UPDATE CPPHONE - Campagna:BIFIS1701C1, Query:
+
+                            update cpphones set cpp_censts=@cntStatus,cpp_calsts='3'  ,cpp_calcnt=cpp_calcnt+1                          
+                            where
+                            cpp_cpaid=1 AND cpp_numpho=1
+[08/03/2018 09:21:52:467] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1
+[08/03/2018 09:21:52:471] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1 - tentativo fallito 3-KO verifico se ho altri numeri oppure devo settare 3-KO definitivamente l'anagrafica
+[08/03/2018 09:21:52:477] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1 - Ho ancora altri numeri da provare in anagrafica quindi la metto a 1-Pronta
+[08/03/2018 09:21:52:506] Get Contact Inizio campagna BIFIS1701C1
+[08/03/2018 09:21:52:510] Stato campagna BIFIS1701C1: True
+[08/03/2018 09:21:52:514] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[08/03/2018 09:21:52:518] --> GET CONTACT - Campagna = BIFIS1701C1 - query: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+                                    
+[08/03/2018 09:21:52:523] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[08/03/2018 09:21:52:528] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[08/03/2018 09:21:52:532] --> GET CONTACT - Campagna = BIFIS1701C1 - Data readed= CHIAMATA:
+ID Anagrafica: 1
+Nome: Roberta Brusa
+phone:3334444444
+current phone: 2
+num phone: 2
+[08/03/2018 09:21:52:537] --> GET CONTACT - Campagna = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 1}{cpa_nome = Roberta Brusa}{cpp_phonum = 3334444444}{OPERMODE = N}{numpho = 2}{curpho = 2}}
+[08/03/2018 09:21:52:541] Setto come Anagrafica Roberta Brusacome 9 - Occupata
+[08/03/2018 09:21:52:546] --> BLOCCO ANAGRAFICA - Campagna:BIFIS1701C1 - Aggiorno l'anagrafica inserento lo stato attuale per es aumentando il contatore e aggiornando il num tel che sto usando 
+update cpanagra set  cpa_calsts=9,cpa_calcnt=cpa_calcnt+1,cpa_curpho=cpa_curpho+1
+                            where
+                            cpa_id=1
+[08/03/2018 09:21:52:577] --> BLOCCO ANAGRAFICA: UPDATE CPPHONE - Campagna:BIFIS1701C1 - aggiorno stato telefono che è 9 in questo caso conteggio +1 in telefono ,cpp_calcnt=cpp_calcnt+1
+update cpphones set   cpp_calsts=9
+                            where 
+                            cpp_cpaid=1 and cpp_numpho=2
+[08/03/2018 09:21:52:606] --> BLOCCO ANAGRAFICA: INSERT CPCALLS - Campagna:BIFIS1701C1 - Inserisco in CPCALLS il log dell'inizio della chiamatainsert into cpcalls (cpl_cpaid,cpl_numpho,cpl_seqcall,cpl_oracall,cpl_calsts)
+                                        values(@idAnag,@numPho,@data,@ora,@stato)
+[08/03/2018 09:21:52:644] Set Contact Inizio per Campagna BIFIS1701C1
+[08/03/2018 09:21:52:649] --> UPDATE CPCALLS - Campagna:BIFIS1701C1
+[08/03/2018 09:21:52:654] --> UPDATE CPCALLS - Campagna:BIFIS1701C1, Query:
+
+                            update cpCalls set  cpl_censts=@cntStatus,cpl_oraend='092152',
+                            cpl_caldur =((substr('092152',1,2)*3600)+(substr('092152',3,2)*60)+substr('092152',5,2))
+                            -((substr(cpl_oracall,1,2)*3600)+(substr(cpl_oracall,3,2)*60)+substr(cpl_oracall,5,2)),
+                            cpl_Agent=@agente
+                            where
+                            cpl_cpaid=1 and cpl_numpho=2 and cpl_caldur is null
+[08/03/2018 09:21:52:683] --> UPDATE CPPHONE - Campagna:BIFIS1701C1 - Aggiorno tabella CpPhone con stato della call porto anvanti conteggio tentativi al telefono numero 2
+[08/03/2018 09:21:52:688] --> UPDATE CPPHONE - Campagna:BIFIS1701C1, Query:
+
+                            update cpphones set cpp_censts=@cntStatus,cpp_calsts='3'  ,cpp_calcnt=cpp_calcnt+1                          
+                            where
+                            cpp_cpaid=1 AND cpp_numpho=2
+[08/03/2018 09:21:52:732] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1
+[08/03/2018 09:21:52:736] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1 - tentativo fallito 3-KO verifico se ho altri numeri oppure devo settare 3-KO definitivamente l'anagrafica
+[08/03/2018 09:21:52:740] --> UPDATE CPANAGRA - Campagna:BIFIS1701C1 - Ho finito i numeri e quindi è 3-KO
+[08/03/2018 09:21:52:783] Get Contact Inizio campagna BIFIS1701C1
+[08/03/2018 09:21:52:787] Stato campagna BIFIS1701C1: True
+[08/03/2018 09:21:52:791] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[08/03/2018 09:21:52:795] --> GET CONTACT - Campagna = BIFIS1701C1 - query: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+                                    
+[08/03/2018 09:21:52:799] --> GET CONTACT - Campagna = BIFIS1701C1 - Fine o Nessun Records: EOF imposto Campagna come 2-Chiusa
+[08/03/2018 09:21:52:803] --> UPDATE CAMPAGNA STATUS - Query:
+
+                            update cpcamp set  cpg_status=2
+                            where
+                            cpg_id=2
+[08/03/2018 09:21:52:844] Init: Begin - Service : XXXXXXXXXX
+[08/03/2018 09:21:52:850] SQL Database Handler created
+[08/03/2018 09:21:52:919] OPEN CONNECTION: Database connection opened - Service: XXXXXXXXXX
+[08/03/2018 09:21:52:924] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 1
+[08/03/2018 09:21:52:928] INIT: End - Service XXXXXXXXXX
+[08/03/2018 09:21:52:932] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 1
+[08/03/2018 09:21:52:935] Get Contact Inizio campagna XXXXXXXXXX
+[08/03/2018 09:21:52:939] Stato campagna XXXXXXXXXX: True
+[08/03/2018 09:21:52:944] --> GET CONTACT - Campagna XXXXXXXXXX Attiva. Ragione: Attiva(1)
+[08/03/2018 09:21:52:948] --> GET CONTACT - Campagna = XXXXXXXXXX - query: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='XXXXXXXXXX'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+                                    
+[08/03/2018 09:21:52:952] --> GET CONTACT - Service = XXXXXXXXXX - Calling MoveNext
+[08/03/2018 09:21:52:955] --> GET CONTACT - Service = XXXXXXXXXX - Reading data from DataSet
+[08/03/2018 09:21:52:961] --> GET CONTACT - Campagna = XXXXXXXXXX - Data readed= CHIAMATA:
+ID Anagrafica: 5
+Nome: Marco Moret
+phone:3335656561
+current phone: 1
+num phone: 1
+[08/03/2018 09:21:52:967] --> GET CONTACT - Campagna = XXXXXXXXXX - CALL DATA {{cpg_id = 3}{cpa_id = 5}{cpa_nome = Marco Moret}{cpp_phonum = 3335656561}{OPERMODE = N}{numpho = 1}{curpho = 1}}
+[08/03/2018 09:21:52:971] Setto come Anagrafica Marco Moretcome 9 - Occupata
+[08/03/2018 09:21:52:976] --> BLOCCO ANAGRAFICA - Campagna:XXXXXXXXXX - Aggiorno l'anagrafica inserento lo stato attuale per es aumentando il contatore e aggiornando il num tel che sto usando 
+update cpanagra set  cpa_calsts=9,cpa_calcnt=cpa_calcnt+1,cpa_curpho=cpa_curpho+1
+                            where
+                            cpa_id=5
+[08/03/2018 09:21:53:014] --> BLOCCO ANAGRAFICA: UPDATE CPPHONE - Campagna:XXXXXXXXXX - aggiorno stato telefono che è 9 in questo caso conteggio +1 in telefono ,cpp_calcnt=cpp_calcnt+1
+update cpphones set   cpp_calsts=9
+                            where 
+                            cpp_cpaid=5 and cpp_numpho=1
+[08/03/2018 09:21:53:053] --> BLOCCO ANAGRAFICA: INSERT CPCALLS - Campagna:XXXXXXXXXX - Inserisco in CPCALLS il log dell'inizio della chiamatainsert into cpcalls (cpl_cpaid,cpl_numpho,cpl_seqcall,cpl_oracall,cpl_calsts)
+                                        values(@idAnag,@numPho,@data,@ora,@stato)
+[08/03/2018 09:21:53:081] Set Contact Inizio per Campagna XXXXXXXXXX
+[08/03/2018 09:21:53:085] --> UPDATE CPCALLS - Campagna:XXXXXXXXXX
+[08/03/2018 09:21:53:089] --> UPDATE CPCALLS - Campagna:XXXXXXXXXX, Query:
+
+                            update cpCalls set  cpl_censts=@cntStatus,cpl_oraend='092153',
+                            cpl_caldur =((substr('092153',1,2)*3600)+(substr('092153',3,2)*60)+substr('092153',5,2))
+                            -((substr(cpl_oracall,1,2)*3600)+(substr(cpl_oracall,3,2)*60)+substr(cpl_oracall,5,2)),
+                            cpl_Agent=@agente
+                            where
+                            cpl_cpaid=5 and cpl_numpho=1 and cpl_caldur is null
+[08/03/2018 09:21:53:119] --> UPDATE CPPHONE - Campagna:XXXXXXXXXX - Aggiorno tabella CpPhone con stato della call porto anvanti conteggio tentativi al telefono numero 1
+[08/03/2018 09:21:53:126] --> UPDATE CPPHONE - Campagna:XXXXXXXXXX, Query:
+
+                            update cpphones set cpp_censts=@cntStatus,cpp_calsts='3'  ,cpp_calcnt=cpp_calcnt+1                          
+                            where
+                            cpp_cpaid=5 AND cpp_numpho=1
+[08/03/2018 09:21:53:158] --> UPDATE CPANAGRA - Campagna:XXXXXXXXXX
+[08/03/2018 09:21:53:162] --> UPDATE CPANAGRA - Campagna:XXXXXXXXXX - tentativo fallito 3-KO verifico se ho altri numeri oppure devo settare 3-KO definitivamente l'anagrafica
+[08/03/2018 09:21:53:167] --> UPDATE CPANAGRA - Campagna:XXXXXXXXXX - Ho finito i numeri e quindi è 3-KO
+[08/03/2018 09:21:53:209] Get Contact Inizio campagna XXXXXXXXXX
+[08/03/2018 09:21:53:213] Stato campagna XXXXXXXXXX: True
+[08/03/2018 09:21:53:216] --> GET CONTACT - Campagna XXXXXXXXXX Attiva. Ragione: Attiva(1)
+[08/03/2018 09:21:53:220] --> GET CONTACT - Campagna = XXXXXXXXXX - query: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='XXXXXXXXXX'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+                                    
+[08/03/2018 09:21:53:225] --> GET CONTACT - Campagna = XXXXXXXXXX - Fine o Nessun Records: EOF imposto Campagna come 2-Chiusa
+[08/03/2018 09:21:53:229] --> UPDATE CAMPAGNA STATUS - Query:
+
+                            update cpcamp set  cpg_status=2
+                            where
+                            cpg_id=3
+[08/03/2018 09:21:53:270] --> REFRESH DB: Inizio - Campagna: XXXXXXXXXX
+[08/03/2018 09:21:53:277] --> RELOAD DATASET - Refreshed dataset
+[08/03/2018 09:21:53:282] --> REFRESH DB: Fine - Campagna: XXXXXXXXXX

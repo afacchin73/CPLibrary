@@ -1,0 +1,27 @@
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\CPLibrary\obj\Debug\CPLibrary.csproj.CoreCompileInputs.cache
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\CPLibrary\bin\Debug\CPLibrary.dll.config
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\CPLibrary\bin\Debug\CPLibrary.dll
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\CPLibrary\bin\Debug\CPLibrary.pdb
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\CPLibrary\bin\Debug\Databasic.dll
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\CPLibrary\bin\Debug\Databasic.MySql.dll
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\CPLibrary\bin\Debug\Messaging.dll
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\CPLibrary\bin\Debug\MySql.Data.dll
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\CPLibrary\bin\Debug\NetDialerProviderInterface.dll
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\CPLibrary\bin\Debug\Databasic.xml
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\CPLibrary\bin\Debug\Databasic.MySql.xml
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\CPLibrary\obj\Debug\CPLibrary.dll
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\CPLibrary\obj\Debug\CPLibrary.pdb
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\CPLibrary\obj\Debug\CPLibrary.csprojResolveAssemblyReference.cache
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\CPLibrary\bin\Debug\CPLibrary.dll.config
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\CPLibrary\bin\Debug\CPLibrary.dll
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\CPLibrary\bin\Debug\CPLibrary.pdb
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\CPLibrary\bin\Debug\Databasic.dll
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\CPLibrary\bin\Debug\Databasic.MySql.dll
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\CPLibrary\bin\Debug\MySql.Data.dll
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\CPLibrary\bin\Debug\Databasic.xml
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\CPLibrary\bin\Debug\Databasic.MySql.xml
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\CPLibrary\obj\Debug\CPLibrary.csprojResolveAssemblyReference.cache
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\CPLibrary\obj\Debug\CPLibrary.csproj.CoreCompileInputs.cache
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\CPLibrary\obj\Debug\CPLibrary.dll
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\CPLibrary\obj\Debug\CPLibrary.pdb
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\CPLibrary\obj\Debug\CPLibrary.csproj.CopyComplete

@@ -1,0 +1,185 @@
+[06/03/2018 10:50:17:921] Provider Class Initialize
+[06/03/2018 10:50:17:930] Provider Class Initialize
+[06/03/2018 10:50:17:943] Init: Begin - Service : BIFIS1701C1
+[06/03/2018 10:50:18:090] SQL Database Handler created
+[06/03/2018 10:50:18:542] OPEN CONNECTION: Database connection opened - Service: BIFIS1701C1
+[06/03/2018 10:50:18:661] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[06/03/2018 10:50:18:668] INIT: End - Service BIFIS1701C1
+[06/03/2018 10:50:18:674] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[06/03/2018 10:50:18:683] Get Contact Inizio campagna BIFIS1701C1
+[06/03/2018 10:50:18:705] Stato campagna BIFIS1701C1: False
+[06/03/2018 10:50:18:714] --> GET CONTACT - Campagna BIFIS1701C1 disattiva. Ragione: Stato sconosciuto - Disattivo Campagna(2)
+[06/03/2018 10:52:16:305] Provider Class Initialize
+[06/03/2018 10:52:16:310] Provider Class Initialize
+[06/03/2018 10:52:16:323] Init: Begin - Service : BIFIS1701C1
+[06/03/2018 10:52:16:384] SQL Database Handler created
+[06/03/2018 10:52:16:600] OPEN CONNECTION: Database connection opened - Service: BIFIS1701C1
+[06/03/2018 10:52:16:607] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[06/03/2018 10:52:16:610] INIT: End - Service BIFIS1701C1
+[06/03/2018 10:52:16:615] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[06/03/2018 10:52:16:624] Get Contact Inizio campagna BIFIS1701C1
+[06/03/2018 10:52:16:631] Stato campagna BIFIS1701C1: False
+[06/03/2018 10:52:16:637] --> GET CONTACT - Campagna BIFIS1701C1 disattiva. Ragione: Stato sconosciuto - Disattivo Campagna(2)
+[06/03/2018 10:52:16:641] Refresh: Inizio - Campagna: BIFIS1701C1
+[06/03/2018 10:52:16:661] Refresh DB - Campagna = BIFIS1701C1 - Failed Cause Exception: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[06/03/2018 10:52:16:666] Init: Begin - Service : XXXXXXXXXX
+[06/03/2018 10:52:16:670] SQL Database Handler created
+[06/03/2018 10:52:16:730] OPEN CONNECTION: Database connection opened - Service: XXXXXXXXXX
+[06/03/2018 10:52:16:734] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 1
+[06/03/2018 10:52:16:740] INIT: End - Service XXXXXXXXXX
+[06/03/2018 10:52:16:744] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 1
+[06/03/2018 10:52:16:748] Get Contact Inizio campagna XXXXXXXXXX
+[06/03/2018 10:52:16:752] Stato campagna XXXXXXXXXX: False
+[06/03/2018 10:52:16:757] --> GET CONTACT - Campagna XXXXXXXXXX disattiva. Ragione: Stato sconosciuto - Disattivo Campagna(2)
+[06/03/2018 10:52:16:760] Refresh: Inizio - Campagna: XXXXXXXXXX
+[06/03/2018 10:52:16:771] Refresh DB - Campagna = XXXXXXXXXX - Failed Cause Exception: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[06/03/2018 10:53:11:356] Provider Class Initialize
+[06/03/2018 10:53:11:361] Provider Class Initialize
+[06/03/2018 10:53:11:374] Init: Begin - Service : BIFIS1701C1
+[06/03/2018 10:53:11:420] SQL Database Handler created
+[06/03/2018 10:53:11:650] OPEN CONNECTION: Database connection opened - Service: BIFIS1701C1
+[06/03/2018 10:53:11:657] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[06/03/2018 10:53:11:663] INIT: End - Service BIFIS1701C1
+[06/03/2018 10:53:11:669] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[06/03/2018 10:53:11:681] Get Contact Inizio campagna BIFIS1701C1
+[06/03/2018 10:53:11:688] Stato campagna BIFIS1701C1: False
+[06/03/2018 10:53:11:694] --> GET CONTACT - Campagna BIFIS1701C1 disattiva. Ragione: Stato sconosciuto - Disattivo Campagna(2)
+[06/03/2018 10:53:11:698] Refresh: Inizio - Campagna: BIFIS1701C1
+[06/03/2018 10:53:11:721] Refresh DB - Campagna = BIFIS1701C1 - Failed Cause Exception: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[06/03/2018 10:53:11:726] Init: Begin - Service : XXXXXXXXXX
+[06/03/2018 10:53:11:731] SQL Database Handler created
+[06/03/2018 10:53:11:797] OPEN CONNECTION: Database connection opened - Service: XXXXXXXXXX
+[06/03/2018 10:53:11:802] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 1
+[06/03/2018 10:53:11:806] INIT: End - Service XXXXXXXXXX
+[06/03/2018 10:53:11:810] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 1
+[06/03/2018 10:53:11:814] Get Contact Inizio campagna XXXXXXXXXX
+[06/03/2018 10:53:11:818] Stato campagna XXXXXXXXXX: False
+[06/03/2018 10:53:11:823] --> GET CONTACT - Campagna XXXXXXXXXX disattiva. Ragione: Stato sconosciuto - Disattivo Campagna(2)
+[06/03/2018 10:53:11:827] Refresh: Inizio - Campagna: XXXXXXXXXX
+[06/03/2018 10:53:11:837] Refresh DB - Campagna = XXXXXXXXXX - Failed Cause Exception: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[06/03/2018 10:53:37:605] Provider Class Initialize
+[06/03/2018 10:53:37:611] Provider Class Initialize
+[06/03/2018 10:53:37:622] Init: Begin - Service : BIFIS1701C1
+[06/03/2018 10:53:37:669] SQL Database Handler created
+[06/03/2018 10:53:37:913] OPEN CONNECTION: Database connection opened - Service: BIFIS1701C1
+[06/03/2018 10:53:37:919] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[06/03/2018 10:53:37:924] INIT: End - Service BIFIS1701C1
+[06/03/2018 10:53:37:928] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[06/03/2018 10:53:37:934] Get Contact Inizio campagna BIFIS1701C1
+[06/03/2018 10:53:37:939] Stato campagna BIFIS1701C1: False
+[06/03/2018 10:53:37:943] --> GET CONTACT - Campagna BIFIS1701C1 disattiva. Ragione: Stato sconosciuto - Disattivo Campagna(2)
+[06/03/2018 10:53:45:242] Refresh: Inizio - Campagna: BIFIS1701C1
+[06/03/2018 10:55:33:353] Provider Class Initialize
+[06/03/2018 10:55:33:358] Provider Class Initialize
+[06/03/2018 10:55:33:373] Init: Begin - Service : BIFIS1701C1
+[06/03/2018 10:55:33:419] SQL Database Handler created
+[06/03/2018 10:55:33:639] OPEN CONNECTION: Database connection opened - Service: BIFIS1701C1
+[06/03/2018 10:55:33:645] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[06/03/2018 10:55:33:649] INIT: End - Service BIFIS1701C1
+[06/03/2018 10:55:33:655] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[06/03/2018 10:55:33:663] Get Contact Inizio campagna BIFIS1701C1
+[06/03/2018 10:55:33:670] Stato campagna BIFIS1701C1: False
+[06/03/2018 10:55:33:675] --> GET CONTACT - Campagna BIFIS1701C1 disattiva. Ragione: Stato sconosciuto - Disattivo Campagna(2)
+[06/03/2018 10:55:37:219] Refresh: Inizio - Campagna: BIFIS1701C1
+[06/03/2018 10:55:37:238] Refresh DB - Campagna = BIFIS1701C1 - Failed Cause Exception: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[06/03/2018 10:55:37:241] Init: Begin - Service : XXXXXXXXXX
+[06/03/2018 10:55:37:245] SQL Database Handler created
+[06/03/2018 10:55:37:298] OPEN CONNECTION: Database connection opened - Service: XXXXXXXXXX
+[06/03/2018 10:55:37:302] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 1
+[06/03/2018 10:55:37:305] INIT: End - Service XXXXXXXXXX
+[06/03/2018 10:55:37:308] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 1
+[06/03/2018 10:55:37:312] Get Contact Inizio campagna XXXXXXXXXX
+[06/03/2018 10:55:37:315] Stato campagna XXXXXXXXXX: False
+[06/03/2018 10:55:37:320] --> GET CONTACT - Campagna XXXXXXXXXX disattiva. Ragione: Stato sconosciuto - Disattivo Campagna(2)
+[06/03/2018 10:55:38:919] Refresh: Inizio - Campagna: XXXXXXXXXX
+[06/03/2018 10:55:38:928] Refresh DB - Campagna = XXXXXXXXXX - Failed Cause Exception: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[06/03/2018 10:56:11:769] Provider Class Initialize
+[06/03/2018 10:56:11:774] Provider Class Initialize
+[06/03/2018 10:56:11:789] Init: Begin - Service : BIFIS1701C1
+[06/03/2018 10:56:11:837] SQL Database Handler created
+[06/03/2018 10:56:12:056] OPEN CONNECTION: Database connection opened - Service: BIFIS1701C1
+[06/03/2018 10:56:12:062] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[06/03/2018 10:56:12:066] INIT: End - Service BIFIS1701C1
+[06/03/2018 10:56:12:071] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[06/03/2018 10:56:12:076] Get Contact Inizio campagna BIFIS1701C1
+[06/03/2018 10:56:12:082] Stato campagna BIFIS1701C1: False
+[06/03/2018 10:56:12:087] --> GET CONTACT - Campagna BIFIS1701C1 disattiva. Ragione: Stato sconosciuto - Disattivo Campagna(2)
+[06/03/2018 10:56:12:090] Init: Begin - Service : XXXXXXXXXX
+[06/03/2018 10:56:12:095] SQL Database Handler created
+[06/03/2018 10:56:12:160] OPEN CONNECTION: Database connection opened - Service: XXXXXXXXXX
+[06/03/2018 10:56:12:164] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 1
+[06/03/2018 10:56:12:168] INIT: End - Service XXXXXXXXXX
+[06/03/2018 10:56:12:172] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 1
+[06/03/2018 10:56:12:176] Get Contact Inizio campagna XXXXXXXXXX
+[06/03/2018 10:56:12:180] Stato campagna XXXXXXXXXX: False
+[06/03/2018 10:56:12:185] --> GET CONTACT - Campagna XXXXXXXXXX disattiva. Ragione: Stato sconosciuto - Disattivo Campagna(2)
+[06/03/2018 10:56:23:248] Refresh: Inizio - Campagna: XXXXXXXXXX
+[06/03/2018 10:57:39:038] Provider Class Initialize
+[06/03/2018 10:57:39:042] Provider Class Initialize
+[06/03/2018 10:57:39:052] Init: Begin - Service : BIFIS1701C1
+[06/03/2018 10:57:39:098] SQL Database Handler created
+[06/03/2018 10:57:39:347] OPEN CONNECTION: Database connection opened - Service: BIFIS1701C1
+[06/03/2018 10:57:39:353] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[06/03/2018 10:57:39:358] INIT: End - Service BIFIS1701C1
+[06/03/2018 10:57:39:364] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[06/03/2018 10:57:39:372] Get Contact Inizio campagna BIFIS1701C1
+[06/03/2018 10:57:39:379] Stato campagna BIFIS1701C1: False
+[06/03/2018 10:57:39:384] --> GET CONTACT - Campagna BIFIS1701C1 disattiva. Ragione: Stato sconosciuto - Disattivo Campagna(2)
+[06/03/2018 10:57:39:389] Init: Begin - Service : XXXXXXXXXX
+[06/03/2018 10:57:39:395] SQL Database Handler created
+[06/03/2018 10:57:39:462] OPEN CONNECTION: Database connection opened - Service: XXXXXXXXXX
+[06/03/2018 10:57:39:467] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 1
+[06/03/2018 10:57:39:472] INIT: End - Service XXXXXXXXXX
+[06/03/2018 10:57:39:476] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 1
+[06/03/2018 10:57:39:480] Get Contact Inizio campagna XXXXXXXXXX
+[06/03/2018 10:57:39:484] Stato campagna XXXXXXXXXX: False
+[06/03/2018 10:57:39:488] --> GET CONTACT - Campagna XXXXXXXXXX disattiva. Ragione: Stato sconosciuto - Disattivo Campagna(2)
+[06/03/2018 10:57:41:681] Refresh: Inizio - Campagna: XXXXXXXXXX
+[06/03/2018 10:57:41:718] --> REFRESH - Refreshed dataset
+[06/03/2018 10:57:41:724] Refresh: Fine - Campagna: XXXXXXXXXX
+[06/03/2018 10:58:10:999] Provider Class Initialize
+[06/03/2018 10:58:11:011] Provider Class Initialize
+[06/03/2018 10:58:11:023] Init: Begin - Service : BIFIS1701C1
+[06/03/2018 10:58:11:072] SQL Database Handler created
+[06/03/2018 10:58:11:323] OPEN CONNECTION: Database connection opened - Service: BIFIS1701C1
+[06/03/2018 10:58:11:329] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[06/03/2018 10:58:11:336] INIT: End - Service BIFIS1701C1
+[06/03/2018 10:58:11:340] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[06/03/2018 10:58:11:347] Get Contact Inizio campagna BIFIS1701C1
+[06/03/2018 10:58:11:353] Stato campagna BIFIS1701C1: False
+[06/03/2018 10:58:11:359] --> GET CONTACT - Campagna BIFIS1701C1 disattiva. Ragione: Stato sconosciuto - Disattivo Campagna(2)
+[06/03/2018 10:58:11:365] Init: Begin - Service : XXXXXXXXXX
+[06/03/2018 10:58:11:371] SQL Database Handler created
+[06/03/2018 10:58:11:438] OPEN CONNECTION: Database connection opened - Service: XXXXXXXXXX
+[06/03/2018 10:58:11:443] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 1
+[06/03/2018 10:58:11:447] INIT: End - Service XXXXXXXXXX
+[06/03/2018 10:58:11:451] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 1
+[06/03/2018 10:58:11:455] Get Contact Inizio campagna XXXXXXXXXX
+[06/03/2018 10:58:11:459] Stato campagna XXXXXXXXXX: False
+[06/03/2018 10:58:11:465] --> GET CONTACT - Campagna XXXXXXXXXX disattiva. Ragione: Stato sconosciuto - Disattivo Campagna(2)
+[06/03/2018 10:58:11:471] Refresh: Inizio - Campagna: XXXXXXXXXX
+[06/03/2018 10:58:11:492] --> REFRESH - Refreshed dataset
+[06/03/2018 10:58:11:498] Refresh: Fine - Campagna: XXXXXXXXXX
+[06/03/2018 10:58:22:919] Provider Class Initialize
+[06/03/2018 10:58:22:925] Provider Class Initialize
+[06/03/2018 10:58:22:938] Init: Begin - Service : BIFIS1701C1
+[06/03/2018 10:58:22:989] SQL Database Handler created
+[06/03/2018 10:58:23:222] OPEN CONNECTION: Database connection opened - Service: BIFIS1701C1
+[06/03/2018 10:58:23:228] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[06/03/2018 10:58:23:233] INIT: End - Service BIFIS1701C1
+[06/03/2018 10:58:23:239] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[06/03/2018 10:58:23:247] Get Contact Inizio campagna BIFIS1701C1
+[06/03/2018 10:58:23:254] Stato campagna BIFIS1701C1: False
+[06/03/2018 10:58:23:259] --> GET CONTACT - Campagna BIFIS1701C1 disattiva. Ragione: Stato sconosciuto - Disattivo Campagna(2)
+[06/03/2018 10:58:23:265] Init: Begin - Service : XXXXXXXXXX
+[06/03/2018 10:58:23:269] SQL Database Handler created
+[06/03/2018 10:58:23:340] OPEN CONNECTION: Database connection opened - Service: XXXXXXXXXX
+[06/03/2018 10:58:23:345] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 1
+[06/03/2018 10:58:23:349] INIT: End - Service XXXXXXXXXX
+[06/03/2018 10:58:23:353] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 1
+[06/03/2018 10:58:23:357] Get Contact Inizio campagna XXXXXXXXXX
+[06/03/2018 10:58:23:362] Stato campagna XXXXXXXXXX: False
+[06/03/2018 10:58:23:367] --> GET CONTACT - Campagna XXXXXXXXXX disattiva. Ragione: Stato sconosciuto - Disattivo Campagna(2)
+[06/03/2018 10:58:23:373] Refresh: Inizio - Campagna: XXXXXXXXXX
+[06/03/2018 10:58:23:392] --> REFRESH - Refreshed dataset
+[06/03/2018 10:58:23:396] Refresh: Fine - Campagna: XXXXXXXXXX

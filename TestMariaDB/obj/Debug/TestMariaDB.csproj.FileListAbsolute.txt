@@ -1,0 +1,33 @@
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\TestMariaDB\obj\Debug\TestMariaDB.csproj.CoreCompileInputs.cache
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\TestMariaDB\bin\Debug\TestMariaDB.exe.config
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\TestMariaDB\bin\Debug\TestMariaDB.exe
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\TestMariaDB\bin\Debug\TestMariaDB.pdb
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\TestMariaDB\bin\Debug\CPLibrary.dll
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\TestMariaDB\bin\Debug\Databasic.dll
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\TestMariaDB\bin\Debug\Databasic.MySql.dll
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\TestMariaDB\bin\Debug\Messaging.dll
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\TestMariaDB\bin\Debug\MySql.Data.dll
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\TestMariaDB\bin\Debug\NetDialerProviderInterface.dll
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\TestMariaDB\bin\Debug\CPLibrary.pdb
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\TestMariaDB\bin\Debug\CPLibrary.dll.config
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\TestMariaDB\bin\Debug\Databasic.xml
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\TestMariaDB\bin\Debug\Databasic.MySql.xml
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\TestMariaDB\obj\Debug\TestMariaDB.csprojResolveAssemblyReference.cache
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\TestMariaDB\obj\Debug\TestMariaDB.exe
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\CPLibrary\TestMariaDB\obj\Debug\TestMariaDB.pdb
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\TestMariaDB\bin\Debug\TestMariaDB.exe.config
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\TestMariaDB\bin\Debug\TestMariaDB.exe
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\TestMariaDB\bin\Debug\TestMariaDB.pdb
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\TestMariaDB\bin\Debug\CPLibrary.dll
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\TestMariaDB\bin\Debug\Databasic.dll
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\TestMariaDB\bin\Debug\Databasic.MySql.dll
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\TestMariaDB\bin\Debug\MySql.Data.dll
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\TestMariaDB\bin\Debug\CPLibrary.pdb
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\TestMariaDB\bin\Debug\CPLibrary.dll.config
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\TestMariaDB\bin\Debug\Databasic.xml
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\TestMariaDB\bin\Debug\Databasic.MySql.xml
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\TestMariaDB\obj\Debug\TestMariaDB.csprojResolveAssemblyReference.cache
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\TestMariaDB\obj\Debug\TestMariaDB.csproj.CoreCompileInputs.cache
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\TestMariaDB\obj\Debug\TestMariaDB.exe
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\TestMariaDB\obj\Debug\TestMariaDB.pdb
+D:\00.WORK\01.SVILUPPO\CSS\Sviluppo\Contact Provider\CPLibrary\TestMariaDB\obj\Debug\TestMariaDB.csproj.CopyComplete

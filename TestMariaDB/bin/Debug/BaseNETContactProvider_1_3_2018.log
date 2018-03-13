@@ -1,0 +1,774 @@
+[01/03/2018 10:52:39:437] Provider Class Initialize
+[01/03/2018 10:52:39:442] Provider Class Initialize
+[01/03/2018 10:52:39:455] Init: Begin - Service : BIFIS1701C1
+[01/03/2018 10:52:39:516] SQL Database Handler created
+[01/03/2018 10:52:39:839] OPEN CONNECTION: Database connection opened - Service: BIFIS1701C1
+[01/03/2018 10:52:39:851] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[01/03/2018 10:52:39:856] INIT: End - Service BIFIS1701C1
+[01/03/2018 10:52:39:862] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[01/03/2018 10:52:39:870] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:52:39:875] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:52:39:883] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:52:39:892] --> GET CONTACT - Service = BIFIS1701C1 - query created: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 ,cpg_maxcall
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+
+[01/03/2018 10:52:39:956] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Unknown column 'cpg_maxcall' in 'field list'
+[01/03/2018 10:52:40:964] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:52:40:968] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:52:40:975] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:52:40:995] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:52:42:000] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:52:42:003] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:52:42:007] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:52:42:017] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:52:43:021] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:52:43:028] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:52:43:033] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:52:43:043] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:52:44:048] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:52:44:051] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:52:44:055] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:52:44:063] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:52:45:068] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:52:45:071] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:52:45:077] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:52:45:086] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:52:46:092] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:52:46:096] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:52:46:100] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:52:46:109] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:52:47:113] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:52:47:116] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:52:47:121] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:52:47:130] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:52:48:134] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:52:48:137] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:52:48:141] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:52:48:149] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:52:49:154] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:52:49:157] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:52:49:161] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:52:49:170] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:52:50:174] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:52:50:177] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:52:50:181] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:52:50:190] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:52:51:195] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:52:51:198] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:52:51:202] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:52:51:211] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:52:52:216] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:52:52:220] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:52:52:224] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:52:52:233] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:52:53:237] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:52:53:240] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:52:53:244] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:52:53:253] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:52:54:258] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:52:54:261] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:52:54:265] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:52:54:274] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:52:55:280] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:52:55:284] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:52:55:288] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:52:55:297] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:52:56:302] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:52:56:307] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:52:56:312] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:52:56:323] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:52:57:329] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:52:57:332] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:52:57:336] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:52:57:344] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:52:58:348] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:52:58:352] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:52:58:356] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:52:58:366] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:52:59:371] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:52:59:374] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:52:59:378] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:52:59:387] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:53:00:392] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:53:00:397] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:53:00:402] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:53:00:413] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:53:01:418] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:53:01:421] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:53:01:425] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:53:01:435] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:53:02:440] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:53:02:444] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:53:02:449] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:53:02:458] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:53:03:463] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:53:03:467] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:53:03:471] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:53:03:480] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:53:04:485] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:53:04:489] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:53:04:493] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:53:04:503] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:53:05:506] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:53:05:520] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:53:05:526] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:53:05:536] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:53:06:540] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:53:06:544] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:53:06:549] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:53:06:558] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:53:07:563] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:53:07:567] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:53:07:571] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:53:07:580] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+[01/03/2018 10:54:00:300] Provider Class Initialize
+[01/03/2018 10:54:00:304] Provider Class Initialize
+[01/03/2018 10:54:00:316] Init: Begin - Service : BIFIS1701C1
+[01/03/2018 10:54:00:382] SQL Database Handler created
+[01/03/2018 10:54:00:626] OPEN CONNECTION: Database connection opened - Service: BIFIS1701C1
+[01/03/2018 10:54:00:633] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[01/03/2018 10:54:00:637] INIT: End - Service BIFIS1701C1
+[01/03/2018 10:54:00:644] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[01/03/2018 10:54:13:082] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:54:15:923] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:54:18:276] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:54:23:246] --> GET CONTACT - Service = BIFIS1701C1 - query created: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 ,cpg_maxcall
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+
+[01/03/2018 10:54:53:533] Provider Class Initialize
+[01/03/2018 10:54:53:538] Provider Class Initialize
+[01/03/2018 10:54:53:570] Init: Begin - Service : BIFIS1701C1
+[01/03/2018 10:54:53:617] SQL Database Handler created
+[01/03/2018 10:54:53:877] OPEN CONNECTION: Database connection opened - Service: BIFIS1701C1
+[01/03/2018 10:54:53:884] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[01/03/2018 10:54:53:891] INIT: End - Service BIFIS1701C1
+[01/03/2018 10:54:53:895] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[01/03/2018 10:54:55:984] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:54:55:988] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:54:55:993] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:54:55:998] --> GET CONTACT - Service = BIFIS1701C1 - query created: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 ,cpg_maxcal
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+
+[01/03/2018 10:54:56:044] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[01/03/2018 10:54:56:048] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[01/03/2018 10:54:56:052] --> GET CONTACT - Service = BIFIS1701C1 - Data readed= 2, Andrea Facchin, 3381999809, P, 1
+[01/03/2018 10:54:56:058] --> GET CONTACT - Service = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 2}{cpa_nome = Andrea Facchin}{cpp_phonum = 3381999809}{OPERMODE = N}{numpho = 2}{curpho = 1}{cpg_maxcall = 1}}
+[01/03/2018 10:54:56:062] Get Contact Ends for Service BIFIS1701C1
+[01/03/2018 10:54:56:190] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Duplicate entry '2-1' for key 'PRIMARY'
+[01/03/2018 10:54:56:236] Set Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:54:57:375] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:54:57:379] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:54:57:383] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:54:57:386] --> GET CONTACT - Service = BIFIS1701C1 - query created: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 ,cpg_maxcal
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+
+[01/03/2018 10:54:57:390] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[01/03/2018 10:54:57:394] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[01/03/2018 10:54:57:397] --> GET CONTACT - Service = BIFIS1701C1 - Data readed= 2, Andrea Facchin, 3389999999, P, 1
+[01/03/2018 10:54:57:402] --> GET CONTACT - Service = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 2}{cpa_nome = Andrea Facchin}{cpp_phonum = 3389999999}{OPERMODE = N}{numpho = 2}{curpho = 2}{cpg_maxcall = 2}}
+[01/03/2018 10:54:57:406] Get Contact Ends for Service BIFIS1701C1
+[01/03/2018 10:54:57:492] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Duplicate entry '2-2' for key 'PRIMARY'
+[01/03/2018 10:54:57:536] Set Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:54:58:974] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:54:58:978] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:54:58:981] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:54:58:985] --> GET CONTACT - Service = BIFIS1701C1 - query created: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 ,cpg_maxcal
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+
+[01/03/2018 10:54:58:989] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[01/03/2018 10:54:58:992] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[01/03/2018 10:54:58:996] --> GET CONTACT - Service = BIFIS1701C1 - Data readed= 1, Roberta Brusa, 3394154717, P, 1
+[01/03/2018 10:54:59:002] --> GET CONTACT - Service = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 1}{cpa_nome = Roberta Brusa}{cpp_phonum = 3394154717}{OPERMODE = N}{numpho = 2}{curpho = 1}{cpg_maxcall = 1}}
+[01/03/2018 10:54:59:005] Get Contact Ends for Service BIFIS1701C1
+[01/03/2018 10:54:59:113] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Duplicate entry '1-1' for key 'PRIMARY'
+[01/03/2018 10:54:59:146] Set Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:55:00:230] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:55:00:233] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:55:00:237] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:55:00:240] --> GET CONTACT - Service = BIFIS1701C1 - query created: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 ,cpg_maxcal
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+
+[01/03/2018 10:55:00:244] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[01/03/2018 10:55:00:249] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[01/03/2018 10:55:00:252] --> GET CONTACT - Service = BIFIS1701C1 - Data readed= 1, Roberta Brusa, 3334444444, P, 1
+[01/03/2018 10:55:00:258] --> GET CONTACT - Service = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 1}{cpa_nome = Roberta Brusa}{cpp_phonum = 3334444444}{OPERMODE = N}{numpho = 2}{curpho = 2}{cpg_maxcall = 2}}
+[01/03/2018 10:55:00:261] Get Contact Ends for Service BIFIS1701C1
+[01/03/2018 10:55:00:349] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Duplicate entry '1-2' for key 'PRIMARY'
+[01/03/2018 10:55:00:380] Set Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:55:01:487] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:55:01:491] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:55:01:495] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:55:01:499] --> GET CONTACT - Service = BIFIS1701C1 - query created: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 ,cpg_maxcal
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+
+[01/03/2018 10:55:01:503] --> GET CONTACT - Service = BIFIS1701C1 - Fine o Nessun Records: EOF
+[01/03/2018 10:55:01:560] --> GET CONTACT - Service = BIFIS1701C1 - ho terminato i numeri di tel delle anagrafiche
+[01/03/2018 10:55:02:565] Init: Begin - Service : XXXXXXXXXX
+[01/03/2018 10:55:02:568] SQL Database Handler created
+[01/03/2018 10:55:02:648] OPEN CONNECTION: Database connection opened - Service: XXXXXXXXXX
+[01/03/2018 10:55:02:652] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 0
+[01/03/2018 10:55:02:656] INIT: End - Service XXXXXXXXXX
+[01/03/2018 10:55:02:659] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 0
+[01/03/2018 10:57:21:340] Provider Class Initialize
+[01/03/2018 10:57:21:345] Provider Class Initialize
+[01/03/2018 10:57:21:357] Init: Begin - Service : BIFIS1701C1
+[01/03/2018 10:57:21:416] SQL Database Handler created
+[01/03/2018 10:57:21:645] OPEN CONNECTION: Database connection opened - Service: BIFIS1701C1
+[01/03/2018 10:57:21:651] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[01/03/2018 10:57:21:657] INIT: End - Service BIFIS1701C1
+[01/03/2018 10:57:21:662] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[01/03/2018 10:57:21:669] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:57:21:673] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:57:21:681] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:57:21:685] --> GET CONTACT - Service = BIFIS1701C1 - query created: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 ,cpg_maxcal
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+
+[01/03/2018 10:57:21:705] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[01/03/2018 10:57:21:709] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[01/03/2018 10:57:21:713] --> GET CONTACT - Service = BIFIS1701C1 - Data readed= 2, Andrea Facchin, 3381999809, P, 1
+[01/03/2018 10:57:21:719] --> GET CONTACT - Service = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 2}{cpa_nome = Andrea Facchin}{cpp_phonum = 3381999809}{OPERMODE = N}{numpho = 2}{curpho = 1}{cpg_maxcall = 1}}
+[01/03/2018 10:57:21:723] Get Contact Ends for Service BIFIS1701C1
+[01/03/2018 10:57:21:823] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Duplicate entry '2-1' for key 'PRIMARY'
+[01/03/2018 10:57:21:867] Set Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:57:22:951] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:57:22:954] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:57:22:958] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:57:22:962] --> GET CONTACT - Service = BIFIS1701C1 - query created: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 ,cpg_maxcal
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+
+[01/03/2018 10:57:22:966] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[01/03/2018 10:57:22:969] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[01/03/2018 10:57:22:973] --> GET CONTACT - Service = BIFIS1701C1 - Data readed= 2, Andrea Facchin, 3389999999, P, 1
+[01/03/2018 10:57:22:979] --> GET CONTACT - Service = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 2}{cpa_nome = Andrea Facchin}{cpp_phonum = 3389999999}{OPERMODE = N}{numpho = 2}{curpho = 2}{cpg_maxcall = 2}}
+[01/03/2018 10:57:22:982] Get Contact Ends for Service BIFIS1701C1
+[01/03/2018 10:57:23:056] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Duplicate entry '2-2' for key 'PRIMARY'
+[01/03/2018 10:57:23:090] Set Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:57:24:196] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:57:24:200] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:57:24:203] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:57:24:207] --> GET CONTACT - Service = BIFIS1701C1 - query created: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 ,cpg_maxcal
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+
+[01/03/2018 10:57:24:211] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[01/03/2018 10:57:24:214] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[01/03/2018 10:57:24:218] --> GET CONTACT - Service = BIFIS1701C1 - Data readed= 1, Roberta Brusa, 3394154717, P, 1
+[01/03/2018 10:57:24:223] --> GET CONTACT - Service = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 1}{cpa_nome = Roberta Brusa}{cpp_phonum = 3394154717}{OPERMODE = N}{numpho = 2}{curpho = 1}{cpg_maxcall = 1}}
+[01/03/2018 10:57:24:227] Get Contact Ends for Service BIFIS1701C1
+[01/03/2018 10:57:24:322] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Duplicate entry '1-1' for key 'PRIMARY'
+[01/03/2018 10:57:24:364] Set Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:57:25:447] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:57:25:451] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:57:25:455] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:57:25:459] --> GET CONTACT - Service = BIFIS1701C1 - query created: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 ,cpg_maxcal
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+
+[01/03/2018 10:57:25:464] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[01/03/2018 10:57:25:468] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[01/03/2018 10:57:25:472] --> GET CONTACT - Service = BIFIS1701C1 - Data readed= 1, Roberta Brusa, 3334444444, P, 1
+[01/03/2018 10:57:25:476] --> GET CONTACT - Service = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 1}{cpa_nome = Roberta Brusa}{cpp_phonum = 3334444444}{OPERMODE = N}{numpho = 2}{curpho = 2}{cpg_maxcall = 2}}
+[01/03/2018 10:57:25:480] Get Contact Ends for Service BIFIS1701C1
+[01/03/2018 10:57:25:594] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Duplicate entry '1-2' for key 'PRIMARY'
+[01/03/2018 10:57:25:625] Set Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:57:27:025] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 10:57:27:028] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 10:57:27:032] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 10:57:27:035] --> GET CONTACT - Service = BIFIS1701C1 - query created: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 ,cpg_maxcal
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+
+[01/03/2018 10:57:27:040] --> GET CONTACT - Service = BIFIS1701C1 - Fine o Nessun Records: EOF
+[01/03/2018 10:57:27:071] --> GET CONTACT - Service = BIFIS1701C1 - ho terminato i numeri di tel delle anagrafiche
+[01/03/2018 10:57:28:076] Init: Begin - Service : XXXXXXXXXX
+[01/03/2018 10:57:28:079] SQL Database Handler created
+[01/03/2018 10:57:28:136] OPEN CONNECTION: Database connection opened - Service: XXXXXXXXXX
+[01/03/2018 10:57:28:140] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 0
+[01/03/2018 10:57:28:144] INIT: End - Service XXXXXXXXXX
+[01/03/2018 10:57:28:149] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 0
+[01/03/2018 10:57:28:152] Get Contact Begins for Service XXXXXXXXXX
+[01/03/2018 10:57:28:156] --> GET CONTACT - Service = XXXXXXXXXX; Table = cpanagra
+[01/03/2018 10:57:28:159] --> GET CONTACT - Campagna XXXXXXXXXX Attiva. Ragione: Attiva(1)
+[01/03/2018 10:57:28:162] --> GET CONTACT - Service = XXXXXXXXXX - query created: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 ,cpg_maxcal
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='XXXXXXXXXX'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+
+[01/03/2018 10:57:28:166] --> GET CONTACT - Service = XXXXXXXXXX - Calling MoveNext
+[01/03/2018 10:57:28:170] --> GET CONTACT - Service = XXXXXXXXXX - Reading data from DataSet
+[01/03/2018 10:57:28:174] --> GET CONTACT - Service = XXXXXXXXXX - Data readed= 5, Marco Moret, 3335656561, P, 1
+[01/03/2018 10:57:28:179] --> GET CONTACT - Service = XXXXXXXXXX - CALL DATA {{cpg_id = 3}{cpa_id = 5}{cpa_nome = Marco Moret}{cpp_phonum = 3335656561}{OPERMODE = N}{numpho = 1}{curpho = 1}{cpg_maxcall = 1}}
+[01/03/2018 10:57:28:182] Get Contact Ends for Service XXXXXXXXXX
+[01/03/2018 10:57:28:272] Set Contact Begins for Service XXXXXXXXXX
+[01/03/2018 10:57:29:379] Get Contact Begins for Service XXXXXXXXXX
+[01/03/2018 10:57:29:384] --> GET CONTACT - Service = XXXXXXXXXX; Table = cpanagra
+[01/03/2018 10:57:29:387] --> GET CONTACT - Campagna XXXXXXXXXX Attiva. Ragione: Attiva(1)
+[01/03/2018 10:57:29:391] --> GET CONTACT - Service = XXXXXXXXXX - query created: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 ,cpg_maxcal
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='XXXXXXXXXX'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+
+[01/03/2018 10:57:29:395] --> GET CONTACT - Service = XXXXXXXXXX - Fine o Nessun Records: EOF
+[01/03/2018 10:57:29:400] --> GET CONTACT - Service = XXXXXXXXXX - ho terminato i numeri di tel delle anagrafiche
+[01/03/2018 11:02:19:008] Provider Class Initialize
+[01/03/2018 11:02:19:013] Provider Class Initialize
+[01/03/2018 11:02:19:024] Init: Begin - Service : BIFIS1701C1
+[01/03/2018 11:02:19:071] SQL Database Handler created
+[01/03/2018 11:02:19:323] OPEN CONNECTION: Database connection opened - Service: BIFIS1701C1
+[01/03/2018 11:02:19:329] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[01/03/2018 11:02:19:333] INIT: End - Service BIFIS1701C1
+[01/03/2018 11:02:19:340] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[01/03/2018 11:02:19:348] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 11:02:19:352] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 11:02:19:358] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 11:02:19:364] --> GET CONTACT - Service = BIFIS1701C1 - query created: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 ,cpg_maxcal
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+
+[01/03/2018 11:02:19:383] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[01/03/2018 11:02:19:386] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[01/03/2018 11:02:19:390] --> GET CONTACT - Service = BIFIS1701C1 - Data readed= 2, Andrea Facchin, 3381999809, P, 1
+[01/03/2018 11:02:19:395] --> GET CONTACT - Service = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 2}{cpa_nome = Andrea Facchin}{cpp_phonum = 3381999809}{OPERMODE = N}{numpho = 2}{curpho = 1}{cpg_maxcall = 1}}
+[01/03/2018 11:02:19:398] Get Contact Ends for Service BIFIS1701C1
+[01/03/2018 11:02:19:510] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Duplicate entry '2-1' for key 'PRIMARY'
+[01/03/2018 11:02:19:547] Set Contact Begins for Service BIFIS1701C1
+[01/03/2018 11:02:20:642] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 11:02:20:646] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 11:02:20:650] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 11:02:20:654] --> GET CONTACT - Service = BIFIS1701C1 - query created: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 ,cpg_maxcal
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+
+[01/03/2018 11:02:20:658] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[01/03/2018 11:02:20:663] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[01/03/2018 11:02:20:666] --> GET CONTACT - Service = BIFIS1701C1 - Data readed= 2, Andrea Facchin, 3389999999, P, 1
+[01/03/2018 11:02:20:671] --> GET CONTACT - Service = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 2}{cpa_nome = Andrea Facchin}{cpp_phonum = 3389999999}{OPERMODE = N}{numpho = 2}{curpho = 2}{cpg_maxcall = 2}}
+[01/03/2018 11:02:20:675] Get Contact Ends for Service BIFIS1701C1
+[01/03/2018 11:02:20:764] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Duplicate entry '2-2' for key 'PRIMARY'
+[01/03/2018 11:02:20:798] Set Contact Begins for Service BIFIS1701C1
+[01/03/2018 11:02:21:905] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 11:02:21:908] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 11:02:21:912] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 11:02:21:915] --> GET CONTACT - Service = BIFIS1701C1 - query created: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 ,cpg_maxcal
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+
+[01/03/2018 11:02:21:920] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[01/03/2018 11:02:21:924] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[01/03/2018 11:02:21:927] --> GET CONTACT - Service = BIFIS1701C1 - Data readed= 1, Roberta Brusa, 3394154717, P, 1
+[01/03/2018 11:02:21:932] --> GET CONTACT - Service = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 1}{cpa_nome = Roberta Brusa}{cpp_phonum = 3394154717}{OPERMODE = N}{numpho = 2}{curpho = 1}{cpg_maxcall = 1}}
+[01/03/2018 11:02:21:936] Get Contact Ends for Service BIFIS1701C1
+[01/03/2018 11:02:22:021] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Duplicate entry '1-1' for key 'PRIMARY'
+[01/03/2018 11:02:22:055] Set Contact Begins for Service BIFIS1701C1
+[01/03/2018 11:02:23:139] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 11:02:23:143] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 11:02:23:148] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 11:02:23:152] --> GET CONTACT - Service = BIFIS1701C1 - query created: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 ,cpg_maxcal
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+
+[01/03/2018 11:02:23:157] --> GET CONTACT - Service = BIFIS1701C1 - Calling MoveNext
+[01/03/2018 11:02:23:161] --> GET CONTACT - Service = BIFIS1701C1 - Reading data from DataSet
+[01/03/2018 11:02:23:164] --> GET CONTACT - Service = BIFIS1701C1 - Data readed= 1, Roberta Brusa, 3334444444, P, 1
+[01/03/2018 11:02:23:169] --> GET CONTACT - Service = BIFIS1701C1 - CALL DATA {{cpg_id = 2}{cpa_id = 1}{cpa_nome = Roberta Brusa}{cpp_phonum = 3334444444}{OPERMODE = N}{numpho = 2}{curpho = 2}{cpg_maxcall = 2}}
+[01/03/2018 11:02:23:174] Get Contact Ends for Service BIFIS1701C1
+[01/03/2018 11:02:23:281] --> GET CONTACT - Service = BIFIS1701C1 - Fallita per errore: Duplicate entry '1-2' for key 'PRIMARY'
+[01/03/2018 11:02:23:323] Set Contact Begins for Service BIFIS1701C1
+[01/03/2018 11:02:24:429] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 11:02:24:432] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 11:02:24:439] --> GET CONTACT - Campagna BIFIS1701C1 Attiva. Ragione: Attiva(1)
+[01/03/2018 11:02:24:442] --> GET CONTACT - Service = BIFIS1701C1 - query created: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 ,cpg_maxcal
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='BIFIS1701C1'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+
+[01/03/2018 11:02:24:447] --> GET CONTACT - Service = BIFIS1701C1 - Fine o Nessun Records: EOF
+[01/03/2018 11:02:24:485] --> GET CONTACT - Service = BIFIS1701C1 - ho terminato i numeri di tel delle anagrafiche
+[01/03/2018 11:02:25:490] Init: Begin - Service : XXXXXXXXXX
+[01/03/2018 11:02:25:494] SQL Database Handler created
+[01/03/2018 11:02:25:554] OPEN CONNECTION: Database connection opened - Service: XXXXXXXXXX
+[01/03/2018 11:02:25:557] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 0
+[01/03/2018 11:02:25:561] INIT: End - Service XXXXXXXXXX
+[01/03/2018 11:02:25:564] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 0
+[01/03/2018 11:02:25:568] Get Contact Begins for Service XXXXXXXXXX
+[01/03/2018 11:02:25:571] --> GET CONTACT - Service = XXXXXXXXXX; Table = cpanagra
+[01/03/2018 11:02:25:575] --> GET CONTACT - Campagna XXXXXXXXXX Attiva. Ragione: Attiva(1)
+[01/03/2018 11:02:25:578] --> GET CONTACT - Service = XXXXXXXXXX - query created: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 ,cpg_maxcal
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='XXXXXXXXXX'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+
+[01/03/2018 11:02:25:583] --> GET CONTACT - Service = XXXXXXXXXX - Calling MoveNext
+[01/03/2018 11:02:25:587] --> GET CONTACT - Service = XXXXXXXXXX - Reading data from DataSet
+[01/03/2018 11:02:25:590] --> GET CONTACT - Service = XXXXXXXXXX - Data readed= 5, Marco Moret, 3335656561, P, 1
+[01/03/2018 11:02:25:595] --> GET CONTACT - Service = XXXXXXXXXX - CALL DATA {{cpg_id = 3}{cpa_id = 5}{cpa_nome = Marco Moret}{cpp_phonum = 3335656561}{OPERMODE = N}{numpho = 1}{curpho = 1}{cpg_maxcall = 1}}
+[01/03/2018 11:02:25:598] Get Contact Ends for Service XXXXXXXXXX
+[01/03/2018 11:02:25:708] Set Contact Begins for Service XXXXXXXXXX
+[01/03/2018 11:02:26:803] Get Contact Begins for Service XXXXXXXXXX
+[01/03/2018 11:02:26:806] --> GET CONTACT - Service = XXXXXXXXXX; Table = cpanagra
+[01/03/2018 11:02:26:810] --> GET CONTACT - Campagna XXXXXXXXXX Attiva. Ragione: Attiva(1)
+[01/03/2018 11:02:26:813] --> GET CONTACT - Service = XXXXXXXXXX - query created: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 ,cpg_maxcal
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='XXXXXXXXXX'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+
+[01/03/2018 11:02:26:817] --> GET CONTACT - Service = XXXXXXXXXX - Fine o Nessun Records: EOF
+[01/03/2018 11:02:26:823] --> GET CONTACT - Service = XXXXXXXXXX - ho terminato i numeri di tel delle anagrafiche
+[01/03/2018 11:03:04:067] Provider Class Initialize
+[01/03/2018 11:03:04:072] Provider Class Initialize
+[01/03/2018 11:03:04:109] Init: Begin - Service : BIFIS1701C1
+[01/03/2018 11:03:04:163] SQL Database Handler created
+[01/03/2018 11:03:04:415] OPEN CONNECTION: Database connection opened - Service: BIFIS1701C1
+[01/03/2018 11:03:04:422] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[01/03/2018 11:03:04:427] INIT: End - Service BIFIS1701C1
+[01/03/2018 11:03:04:433] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[01/03/2018 11:03:04:441] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 11:03:04:445] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 11:03:04:451] --> GET CONTACT - Campagna BIFIS1701C1 disattiva. Ragione: Stato sconosciuto - Disattivo Campagna(2)
+[01/03/2018 11:03:05:457] Init: Begin - Service : XXXXXXXXXX
+[01/03/2018 11:03:05:463] SQL Database Handler created
+[01/03/2018 11:03:05:522] OPEN CONNECTION: Database connection opened - Service: XXXXXXXXXX
+[01/03/2018 11:03:05:526] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 1
+[01/03/2018 11:03:05:530] INIT: End - Service XXXXXXXXXX
+[01/03/2018 11:03:05:535] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 1
+[01/03/2018 11:03:05:539] Get Contact Begins for Service XXXXXXXXXX
+[01/03/2018 11:03:05:543] --> GET CONTACT - Service = XXXXXXXXXX; Table = cpanagra
+[01/03/2018 11:03:05:547] --> GET CONTACT - Campagna XXXXXXXXXX Attiva. Ragione: Attiva(1)
+[01/03/2018 11:03:05:553] --> GET CONTACT - Service = XXXXXXXXXX - query created: 
+                                        SELECT 
+                                            cpg_id,cpa_id,cpa_nome,cpp_phonum,cpa_calsts,cpa_numpho,cpa_curpho+1 ,cpg_maxcal
+                                        from cpanagra an,cpcamp cm ,cpphones ph
+                                        WHERE 
+                                            cpg_campag='XXXXXXXXXX'
+                                            and
+                                            cpa_calsts=1 -- stato telefonata = 1 ovvero pronto
+                                            and       
+                                            cpg_id=cpa_cpgid -- campagna id
+                                            and 
+                                            cpp_numpho=cpa_curpho + 1 -- contatore telefono partenza da ZERO
+                                            and
+                                            cpp_cpaid=cpa_id -- join tra id phone e id anagr
+    
+                                        ORDER by cpa_numpty     
+                                        LIMIT 1
+
+[01/03/2018 11:03:05:570] --> GET CONTACT - Service = XXXXXXXXXX - Fine o Nessun Records: EOF
+[01/03/2018 11:03:05:619] --> GET CONTACT - Service = XXXXXXXXXX - ho terminato i numeri di tel delle anagrafiche
+[01/03/2018 16:58:31:584] Provider Class Initialize
+[01/03/2018 16:58:31:589] Provider Class Initialize
+[01/03/2018 16:58:31:605] Init: Begin - Service : BIFIS1701C1
+[01/03/2018 16:58:31:705] SQL Database Handler created
+[01/03/2018 16:58:32:482] OPEN CONNECTION: Database connection opened - Service: BIFIS1701C1
+[01/03/2018 16:58:32:525] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[01/03/2018 16:58:32:530] INIT: End - Service BIFIS1701C1
+[01/03/2018 16:58:32:533] COUNTCONTACTS: Number of Contacts in database for Service BIFIS1701C1: 2
+[01/03/2018 16:58:32:539] Get Contact Begins for Service BIFIS1701C1
+[01/03/2018 16:58:32:543] --> GET CONTACT - Service = BIFIS1701C1; Table = cpanagra
+[01/03/2018 16:58:32:553] --> GET CONTACT - Campagna BIFIS1701C1 disattiva. Ragione: Stato sconosciuto - Disattivo Campagna(2)
+[01/03/2018 16:58:33:558] Init: Begin - Service : XXXXXXXXXX
+[01/03/2018 16:58:33:561] SQL Database Handler created
+[01/03/2018 16:58:33:623] OPEN CONNECTION: Database connection opened - Service: XXXXXXXXXX
+[01/03/2018 16:58:33:627] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 1
+[01/03/2018 16:58:33:631] INIT: End - Service XXXXXXXXXX
+[01/03/2018 16:58:33:636] COUNTCONTACTS: Number of Contacts in database for Service XXXXXXXXXX: 1
+[01/03/2018 16:58:33:640] Get Contact Begins for Service XXXXXXXXXX
+[01/03/2018 16:58:33:643] --> GET CONTACT - Service = XXXXXXXXXX; Table = cpanagra
+[01/03/2018 16:58:33:648] --> GET CONTACT - Campagna XXXXXXXXXX disattiva. Ragione: Stato sconosciuto - Disattivo Campagna(2)
