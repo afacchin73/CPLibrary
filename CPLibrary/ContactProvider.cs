@@ -73,7 +73,7 @@ namespace CPLibrary
            
 
             Logger.Instance().WriteTrace(String.Format("Provider Class Initialize"));
-            Logger.Instance().WriteTrace(String.Format("Provider Class Initialize"));
+          
             INIReader.Instance().IniPath = AppDomain.CurrentDomain.BaseDirectory + IniPath;
 
         }
@@ -123,9 +123,6 @@ namespace CPLibrary
                 return false;
             }
         }
-
-
-
 
 
        
